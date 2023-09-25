@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+      <div id="counter">
+        <!-- 外面的div是容器，在容器上绑定的变量属性不会被挂载生效 -->
+        <span v-bind:title="message">
+          <span>{{Text}}</span>
+          {{counter}}
+        </span>
+        <br>
+        <button v-on:mouseup="add10">加10</button>
+        <input v-model="Text">
+      </div>
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script>  
+          const Counter = {
+              data(){
+                  return{
+                      counter:-123,
+                      Text:"Counter:",
+                  }
+              },
+              //会在浏览器的dom加载完后执行
+              mounted(){
+                  setInterval(()=>{
+                      this.add();0
+                      this.message = this.Text + this.counter;
+                  },1000)
+              },
+              methods:{
+                
+                  add(){
+                      this.counter++;
+                  },
+                  add10(){
+                      this.counter+=10;
+                  }
+              }
+          }
+          Vue.createApp(Counter).mount('#counter');
+          // Vue.createApp(Counter).mount('#counter');
+      </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+<script>
+    const TodoItem = {
+        props: ['todo'],
+        template: '<li>This is a {{todo.text}}.</li>'
+    }
+</script>
+
+    <div id="app"> 
+        <input type="text" v-model="formData.username"><br>
+        <input type="password" v-model="formData.password"><br>
+        <button @click="submit">提交</button>
+        <hr>
+    <ol>
+            <todo-item v-for="todoItem in todos" v-bind:todo="todoItem"></todo-item>
+    </ol>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    formData: {
+                        username: '',
+                        password: ''
+                    },
+                    todos: [
+                        { id: 1, text: 'A' },
+                        { id: 2, text: 'B' },
+                        { id: 3, text: 'C' },
+                    ]
+                }
+            },
+            components: {
+                TodoItem
+            },
+            methods: {
+                submit() {
+                  alert('username:'+this.formData.username+'\rpassword:'+this.formData.password);
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+</html>  

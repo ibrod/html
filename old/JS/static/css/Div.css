@@ -1,0 +1,11 @@
+.c1{
+    background-color: aqua;
+    border-radius: 10px;
+    border: 10px solid rgb(19, 210, 150);
+}
+/* 不能打分号，打分号就直接结束了，下面的css就不会生效了 */
+.c2{
+    background-color: rgb(197, 22, 22);
+    border-radius: 5px;
+    border: 5px solid rgb(33, 74, 179); 
+}

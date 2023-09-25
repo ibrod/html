@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="\static\js\0303.js"></script>
+</head>
+<body>
+    <script type="module">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 0,
+                    reverseMessage: 'hello world!It is a beautiful day!'
+                }
+            },
+            methods: {
+                add() {
+                    this.message += 1
+                },
+                reverse() {
+                    this.reverseMessage = this.reverseMessage.split('').reverse().join('')//翻转操作
+                },
+                addChar() {
+                    this.reverseMessage += '!'//字符串的拼接
+                },
+                prevent(){
+                    alert('You can not go to home page!')
+                }
+            },
+        }).mount('#app')
+
+    </script>
+    <div id="app">
+        <p>{{reverseMessage}}</p>
+        <button @click="add">{{message}}</button>
+        <button @click="reverse">reverse</button>
+        <button @click="addChar">addChar</button>
+        <br>
+        <a href="http://thod.top" target="_blank" @click.prevent="prevent">home</a>
+    </div>
+</body>
+</html>
