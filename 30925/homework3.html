@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职位申请表</title>
+</head>
+
+<body>
+    <h1>申请表</h1>
+    <form action="">
+        <div>姓名:<input type="text" name="name" id="name"></div>
+        <div>密码:<input type="password" name="password" id="password"></div>
+        <div>照片: <input type="file" name="file" id="file"></div>
+        <div>感兴趣的职位: <input type="radio" name="job" id="job">web设计<input type="radio" name="job" id="job">web开发</div>
+        <div>向往的城市：<select name="city" id="city">
+                <option value="0">--请选择--</option>
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+                <option value="4">深圳</option>
+                <option value="5">杭州</option>
+                <option value="6">成都</option>
+                <option value="7">武汉</option>
+                <option value="8">西安</option>
+                <option value="9">南京</option>
+                <option value="10">厦门</option>
+                <option value="11">长沙</option>
+                <option value="12">苏州</option>
+                <option value="13">天津</option>
+                <option value="14">重庆</option>
+                <option value="15">岳阳</option>
+            </select></div>
+            <div>
+                协议:<textarea name="protocol" id="protocol" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+            <input type="checkbox" name="confirm" id="confirm">我已认真阅读以上的协议
+        </div>
+        <div>经验：<select name="exp" id="exp">
+            <option value="0">--请选择--</option>
+            <option value="1">一年</option>
+            <option value="2">两年</option>
+            <option value="3">三年</option>
+            <option value="4">四年</option>
+            <option value="5">五年</option>
+            <option value="6">六年</option>
+            <option value="7">七年</option>
+            <option value="8">八年</option>
+            <option value="9">九年</option>
+            <option value="10">十年以上</option>
+        </select></div>
+        <input type="submit" value="提交" disabled>
+        <input type="reset">
+    </form>
+</body>
+
+</html>
