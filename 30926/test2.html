@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas">您的浏览器不支持Canvas</canvas>
+    <script>
+        //JS脚本结合canvas绘制一个红色80px 100px的矩形
+        //根据id获得canvas元素c
+        var c = document.getElementById("myCanvas");
+        c.height = 1800;
+        c.width = 1800;
+        //获得一个绘图环境对象ctx(在画布上绘图的环境)
+        var ctx = c.getContext("2d");
+        //设置颜色
+        ctx.fillStyle = "#ff0000";
+        //绘制矩形x,y：左上角的坐标(0,0)  width , height:矩形的宽和高
+        let h = 0, w = 0;
+        let x = 0, y = 0;
+        let gx=parseInt(Math.random()*1200),gy=parseInt(Math.random()*600);
+        let rcolor = 0;
+        let flag = true;
+        let r = 0, g = 0, b = 0;
+        let gr=parseInt(Math.random()*255),gg=parseInt(Math.random()*255),gb=parseInt(Math.random()*255);
+        let last_timestamp = 0;
+        function fun(timestamp) {
+            ctx.clearRect(0, 0, c.height, c.width);
+            ctx.fillStyle = `rgb(${r},${g},${b})`;
+            rcolor++;
+            ctx.fillRect(x, y, h, w);
+            if (flag) {
+                h++;
+                w++;
+            } else {
+                h--;
+                w--;
+            }
+            if (h >= 500) {
+                flag = false;
+            }else if(h<=0){
+                flag = true;
+            }
+            
+            if(x<gx){
+                x++;
+            }else if(x>gx){
+                x--;
+            }else{
+                gx=parseInt(Math.random()*1200);
+            }
+
+            if(y<gy){
+                y++;
+            }else if(y>gy){
+                y--;
+            }else{
+                gy=parseInt(Math.random()*600);
+            }
+
+
+            if(r<gr){
+                r++;
+            }else if(r>gr){
+                r--;
+            }else{
+                gr=parseInt(Math.random()*255);
+            }
+
+
+            if(g<gg){
+                g++;
+            }else if(g>gg){
+                g--;
+            }else{
+                gg=parseInt(Math.random()*255);
+            }
+
+            
+            if(b<gb){
+                b++;
+            }else if(b>gb){
+                b--;
+            }else{
+                  gb=parseInt(Math.random()*255);
+            }
+
+            console.log(timestamp-last_timestamp);
+            last_timestamp = timestamp;
+            requestAnimationFrame(fun);
+        }
+        requestAnimationFrame(fun);
+    </script>
+</body>
+
+</html>

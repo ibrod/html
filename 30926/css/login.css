@@ -1,0 +1,73 @@
+.HandsomeInput{
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #14afa5;
+    padding: 0 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* 这段代码是一个CSS样式，用来定义一个类名为`.HandsomeInput`的样式。以下是对每一行代码的详细解析：
+
+1. `.HandsomeInput{`: 这一行定义了一个名为HandsomeInput的CSS类。
+
+2. `text-align: center;`: 这一行将文本内容居中对齐。
+
+3. `width: 100%;`: 定义元素的宽度为其父元素的100%。
+
+4. `height: 40px;`: 定义元素的高度为40像素。
+
+5. `line-height: 40px;`: 设置文本行的高度为40像素。这也有助于垂直居中单行文本。
+
+6. `border: 1px solid #ccc;`: 为元素添加一个1像素宽的固定边框，颜色为`#ccc`。
+
+7. `border-radius: 5px;`: 设置边框的圆角为5像素，使元素呈现一个稍微圆润的角落。
+
+8. `margin-bottom: 10px;`: 在元素的下方添加一个10像素的外边距。
+
+9. `font-size: 16px;`: 设置字体大小为16像素。
+
+10. `color: #666;`: 设置文本颜色为`#666`。
+
+11. `padding: 0 10px;`: 在元素内部，顶部和底部的内边距为0，左右的内边距为10像素。
+
+12. `box-sizing: border-box;`: 这意味着元素的宽度和高度包括内容、内边距和边框，但不包括外边距。
+
+13. `-webkit-box-sizing: border-box;`: 与上述`box-sizing`属性相同，但是这是为早期的WebKit浏览器（例如，早期版本的Safari和Chrome）所添加的。
+
+14. `-moz-box-sizing: border-box;`: 这是为早期的Mozilla Firefox浏览器所添加的`box-sizing`属性。
+
+15. `}`: 标记CSS类定义的结束。
+
+总之，这段代码定义了一个具有特定宽高、边框、颜色、内外边距、字体大小和其他属性的输入框样式。它可能是为某种表单或输入字段设计的，让它看起来整洁且有吸引力。 */
+
+.HandsomeInput:focus{
+    outline:none;
+    border: 2px solid #3fa9f5;
+    transition: border-color 0.5s ease-in-out;
+}
+
+.HandsomeButton{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #5a0fb0;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #210ef3;
+    background-color: #bed814;
+    cursor: pointer;
+    transition: background-color 0.5s linear;
+}
+
+.HandsomeButton:hover{
+    background-color: #3fa9f5;
+}

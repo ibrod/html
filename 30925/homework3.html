@@ -9,11 +9,11 @@
 
 <body>
     <h1>申请表</h1>
-    <form action="">
+    <form action="http://thod.top" method="get">
         <div>姓名:<input type="text" name="name" id="name"></div>
         <div>密码:<input type="password" name="password" id="password"></div>
         <div>照片: <input type="file" name="file" id="file"></div>
-        <div>感兴趣的职位: <input type="radio" name="job" id="job">web设计<input type="radio" name="job" id="job">web开发</div>
+        <div>感兴趣的职位: <input type="radio" name="job" id="job" value="web设计">web设计<input type="radio" name="job" id="job" value="web开发">web开发</div>
         <div>向往的城市：<select name="city" id="city">
                 <option value="0">--请选择--</option>
                 <option value="1">北京</option>
@@ -33,10 +33,10 @@
                 <option value="15">岳阳</option>
             </select></div>
             <div>
-                协议:<textarea name="protocol" id="protocol" cols="30" rows="10"></textarea>
+                协议:<textarea name="protocol" id="protocol" cols="30" rows="10" placeholder="求职信息必须准确无误哦！"></textarea>
             </div>
             <div>
-            <input type="checkbox" name="confirm" id="confirm">我已认真阅读以上的协议
+            <input type="checkbox" name="confirm" id="confirm" value="true" required>我已认真阅读以上的协议
         </div>
         <div>经验：<select name="exp" id="exp">
             <option value="0">--请选择--</option>
@@ -51,7 +51,7 @@
             <option value="9">九年</option>
             <option value="10">十年以上</option>
         </select></div>
-        <input type="submit" value="提交" disabled>
+        <input type="submit" value="提交">
         <input type="reset">
     </form>
 </body>
