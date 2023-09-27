@@ -1,1 +1,20 @@
-!*.mp4
+# .gitignore
+
+# 视频文件
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.flv
+*.wmv
+*.mpeg
+*.mpg
+
+# 音频文件
+*.mp3
+*.wav
+*.wma
+*.flac
+*.aac
+*.ogg
+*.m4a
