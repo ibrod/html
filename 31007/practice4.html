@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .jd-title {
+        height: 50px;
+    }
+
+    .jd-content {
+        height: 450px;
+        width: 990px;
+        background: url("./resource/jd.jpg") 0px 0px no-repeat;
+        clear: both;
+    }
+
+    img,
+    span {
+        vertical-align: middle;
+    }
+
+    .jd-login {
+        position: absolute;
+        margin-left: 650px;
+        margin-top: 100px;
+        height: 300px;
+        width: 300px;
+        background-color: white;
+    }
+
+    .jd-login-content {
+        margin: 20px;
+        line-height: 50px;
+    }
+
+    .jd-login-button {
+        width: 80%;
+        background-color: rgb(233, 56, 84);
+        color: white;
+        border: 0;
+        height: 30px
+    }
+</style>
+
+<body>
+    <center>
+        <div>
+            <div style="float:left"><img src="./resource/jd_title.png" alt="jd_title.png"
+                    class="jd-title"><span>欢迎登录</span>
+            </div>
+        </div>
+        <div style="background-color: rgb(233, 56, 84);clear:both;">
+            <div class="jd-content">
+                <div class="jd-login">
+
+                    <div style="margin: 20px;float:left;">
+                        京东会员
+                    </div>
+
+                    <div style="color: red;margin: 20px;float:right;">立即注册</div>
+
+                    <div class="jd-login-content">
+                        <form action="#" style="clear: both;">
+                            <div>
+                                <label for="userName">用户名</label><input type="text" name="userName" id="userName">
+                            </div>
+                            <div>
+                                <label for="userPassWord" style="margin-right: 16px;">密码</label><input type="password"
+                                    name="userPassWord" id="userPassWord">
+                            </div>
+
+                            <input type="checkbox" name="autoLogin" id="autoLogin">
+                            <label for="autoLogin">自动登录</label>
+
+                            <div style="float: right;font-size:10px;color:grey">忘记密码?</div>
+                            <div style="text-align: center;">
+                                <input type="submit" value="登 录" class="jd-login-button">
+                            </div>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+
+</html>
