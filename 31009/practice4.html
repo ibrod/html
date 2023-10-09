@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .make-and-use-money {
+            height: 20px;
+            width: 20px;
+            font-size: 80%;
+            color: white;
+            transform: skew(-15deg);
+            text-align: center;
+            line-height: 20px;
+            margin-top: 9px;
+            margin-left: 3em;
+            overflow: hidden;
+        }
+
+        @keyframes increaseWidth {
+            from {
+                width: 20px;
+            }
+
+            to {
+                width: 60px;
+            }
+        }
+
+        .make-and-use-money:hover {
+            cursor: pointer;
+            animation: increaseWidth 1s forwards;
+        }
+
+        .circle-button {
+            margin-left: 20px;
+            border-radius: 50%;
+            float: right;
+            height: 25px;
+            width: 25px;
+            text-indent: 5px;
+            color: white;
+        }
+
+            .circle-button:hover {
+                cursor: pointer;
+                rotate: 360deg;
+                transition: all 1s;
+            }
+
+
+
+    </style>
+
+
+</head>
+<body>
+<div style="background-color: rgb(245 245 245)"><img src="./resource/qq_color_shell.png" alt=""></div>
+<div style="width: 300px">
+    <div class="make-and-use-money" style="background-color: crimson;float: left" id="makeMoney">赚积分</div>
+
+    <div class="make-and-use-money" style="background-color: #3fa9f5;float: right" id="consumer">花积分</div>
+</div>
+<div style="text-indent: 2em;margin-top: 2%;width: 800px">
+    <a href="">返回商店</a>
+    &nbsp;|&nbsp;
+    <a href="">商旅频道</a>
+    &nbsp;|&nbsp;
+    <a href="">积分商城</a>
+    &nbsp;|&nbsp;
+    <a href="">商旅频道</a>
+    &nbsp;|&nbsp;
+    <a href="">了解彩贝</a>
+    &nbsp;|&nbsp;
+    <a href="">彩贝活动</a>
+    &nbsp;|&nbsp;
+    <a href="">个人中心</a>
+    <div class="circle-button" style="background-color: green">论</div>
+    <div class="circle-button" style="background-color: blue">微</div>
+    <div class="circle-button" style="background-color: red">邮</div>
+</div>
+
+</body>
+
+
+<!--<script>-->
+<!--    const makeMoney = document.getElementById('makeMoney');-->
+<!--    const consumer = document.getElementById('consumer');-->
+
+<!--    makeMoney.addEventListener('mouseover', function () {-->
+<!--        makeMoney.textContent = '赚积分';-->
+<!--    })-->
+
+<!--    makeMoney.addEventListener('mouseleave', function () {-->
+<!--        makeMoney.textContent = '赚';-->
+<!--    })-->
+
+<!--    consumer.addEventListener('mouseover', function () {-->
+<!--        consumer.textContent = '花积分';-->
+<!--    })-->
+
+<!--    consumer.addEventListener('mouseleave', function () {-->
+<!--        consumer.textContent = '花';-->
+<!--    })-->
+
+<!--</script>-->
+
+</html>

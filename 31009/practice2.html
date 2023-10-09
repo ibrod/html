@@ -13,12 +13,18 @@
             text-decoration: none;
             list-style-type: none;
         }
-        li>img{
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            transition: all 1s;
+
+        a>img{
+            margin: 20px;
         }
+
+    img:hover{
+        transform: rotate(360deg) scale(1.2);
+        transition: all 0.5s;
+    }
+
+
+
     </style>
 
 </head>
@@ -26,12 +32,12 @@
 <h1>顺时针旋转360度放大1.2倍</h1>
 <ul>
     <li>
-        <img src="./resource/1.png" alt="">
+        <a href=""><img src="./resource/1.png" alt=""></a>
     </li>
-    <li><img src="./resource/2.png" alt=""></li>
-    <li><img src="./resource/3.png" alt=""></li>
-    <li><img src="./resource/4.png" alt=""></li>
-    <li><img src="./resource/5.png" alt=""></li>
+    <li><a href=""><img src="./resource/2.png" alt=""></a></li>
+    <li><a href=""><img src="./resource/3.png" alt=""></a></li>
+    <li><a href=""><img src="./resource/4.png" alt=""></a></li>
+    <li><a href=""><img src="./resource/5.png" alt=""></a></li>
 </ul>
 </body>
 </html>
