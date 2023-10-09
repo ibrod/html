@@ -1,0 +1,17 @@
+.red-time{
+    color: red;
+}
+
+.p{
+    text-indent:2em;
+}
+
+.second-title,h2{
+    opacity: 0.5;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.center-div{
+    text-align: center;
+}
