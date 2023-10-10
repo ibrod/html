@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/login/logintitle.css">
+</head>
+<body>
+<div class="shadow-title">
+    <img src="../resource/images/loginlogo.jpg" alt="loginlogo.jpg" style="margin-top: 10px">
+    <div class="title-right-content">
+        您好！欢迎光临1号店！&nbsp;<a href="" class="a-none-text-decoration">请登录</a>&nbsp;&nbsp;&nbsp;
+        <div class="grey-border-box">
+            <img src="../resource/images/runbun.png" alt="unbun.png">
+            帮助中心
+            <img src="../resource/images/turnb.png" alt="turnb.png">
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div style="font-weight: bolder;font-size: 30px;">1号店注册</div>
+    <form action="get">
+        <div style="width: 400px;margin: 0 auto;">
+            <input type="text" class="input-style" placeholder="手机号" pattern="^1[34578]\d{9}$" name="phoneNumber" required>
+            <input type="text" class="input-style" placeholder="验证码" name="vCode" required
+                   style="width: 250px;float: left">
+            <input type="button" class="get-code-button" value="获取验证码" required>
+            <input type="password" class="input-style" name="userPassword" placeholder="密码" required>
+            <input type="password" class="input-style" name="confirmPassword" placeholder="确认密码" required>
+            <div style="color: grey;margin-right: 100px;margin-top: 10px;">
+                点击注册，表示您同意1号店<a href="" class="a-none-text-decoration">《服务协议》</a>
+            </div>
+            <input type="submit" value="同意协议并注册" class="submit-button">
+        </div>
+    </form>
+</div>
+</body>
+</html>
