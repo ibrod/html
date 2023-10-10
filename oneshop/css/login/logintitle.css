@@ -79,3 +79,27 @@ body, html {
 .a-none-text-decoration{
     text-decoration: none;
 }
+
+.login-left-pic{
+    float: left;
+    margin-top: 60px;
+    margin-left: 200px;
+}
+
+.login-right-card{
+    float: right;
+    margin-top: 60px;
+    margin-right: 250px;
+    width: 400px;
+}
+
+div{
+    border: 1px solid red;
+}
+
+.login-input-style{
+    background-repeat: no-repeat;
+    line-height: 30px;
+    background-position: 10px 10px;
+    padding-left: 50px;
+}
