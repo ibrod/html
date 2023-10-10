@@ -8,29 +8,67 @@
     <title>Document</title>
 
     <style>
-        div{
+        .border-style {
             border: 1px solid grey;
         }
+
+        img:hover {
+            transform: translate(-14px);
+            transition: all 1s ease-out;
+        }
+
+        .content-t1 {
+            margin-top: 1%;
+            font-size: 20px;
+            color: grey;
+            text-indent: 20px;
+        }
+
+        .content-t2 {
+            margin-top: 2%;
+            font-size: 10px;
+            float: left;
+            clear: both;
+            text-indent: 20px;
+        }
+
+        .content-pic {
+            float: right;
+            margin-top: 6%;
+            margin-right: 3%;
+            height: 180px;
+            width: 220px;
+        }
+
     </style>
 
 </head>
 <body>
 <div style="width: 1300px">
-    <div style="height: 600px;width: 400px;float: left">
-        <div style="margin-top: 20%;font-size: 30px;color: grey;">超级信用卡</div>
-        <div style="margin-top: 5%;font-size: 20px;float: right;clear: both">线上线下累计积分</div>
+    <div style="height: 500px;width: 400px;float: left;border: 1px solid grey;">
+        <div style="margin-top: 20%;font-size: 30px;color: grey;margin-left: 30px;">超级信用卡</div>
+        <div style="margin-top: 5%;font-size: 20px;float: left;clear: both;margin-left: 30px;">线上线下累计积分</div>
+        <img src="./resource/p1.png" alt="" style="width: 60%;float: right;margin-top: 25%;margin-right: 3%">
     </div>
-    <div style="height: 300px;width: 400px;float: left">
-        1
+    <div style="height: 250px;width: 400px;float: left;border: 1px solid grey;">
+        <div class="content-t1">彩贝抢霸</div>
+        <div class="content-t2">线上线下累计积分</div>
+        <img src="./resource/p2.png" alt="" class="content-pic">
     </div>
-    <div style="height: 300px;width: 400px;float: left">
-        1
+    <div style="height: 250px;width: 400px;float: left;border: 1px solid grey;">
+        <div class="content-t1">热门优惠券</div>
+        <div class="content-t2">全场免费领取</div>
+        <img src="./resource/p3.png" alt="" class="content-pic">
     </div>
-    <div style="height: 300px;width: 400px;float: left">
-        1
+    <div style="height: 250px;width: 400px;float: left;border: 1px solid grey;">
+        <div class="content-t1">促销活动</div>
+        <div class="content-t2">汇集全网优惠</div>
+        <img src="./resource/p4.png" alt="" class="content-pic">
     </div>
-    <div style="height: 300px;width: 400px;float: left">
-        1
+    <div style="height: 250px;width: 400px;float: left;border: 1px solid grey;">
+        <div class="content-t1">精挑细选</div>
+        <div class="content-t2">给你最好的选择</div>
+        <img src="./resource/p5.png" alt="" class="content-pic">
     </div>
 </div>
 </body>
