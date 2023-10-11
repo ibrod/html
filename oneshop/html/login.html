@@ -33,9 +33,9 @@
     <form action="get">
         <div>
             <input type="text" name="userName" placeholder="邮箱/手机/用户名" class="input-style login-input-style"
-                   style="background-image: url(../resource/images/userHead.png)">
+                   style="background-image: url(../resource/images/userHead.png)" required>
             <input type="password" name="userPassword" placeholder="密码" class="input-style login-input-style"
-                   style="background-image: url(../resource/images/lock.png)">
+                   style="background-image: url(../resource/images/lock.png)" required>
             <div style="float: left;margin: 10px;">
                 <input type="checkbox" name="autoLogin" id="autoLogin"><label for="autoLogin">自动登录</label>
             </div>
@@ -46,9 +46,14 @@
     <div style="margin: 10px;font-size: 13px;color: #626262">
         更多合作网站账号登录
     </div>
-    <div>
-
-
+    <div style="margin-left: 1em;width: 250px;display: inline-block;">
+        <img src="../resource/images/l_1.png" alt="l_1.png" class="bottom-img-style">
+        <img src="../resource/images/l_2.png" alt="l_2.png" class="bottom-img-style">
+        <img src="../resource/images/l_3.png" alt="l_3.png" class="bottom-img-style">
+        <img src="../resource/images/l_4.png" alt="l_4.png" class="bottom-img-style">
+    </div>
+    <div style="float: right;line-height: 50px;color: grey;font-size: 10px;">
+        <a href="" style="color: inherit;text-decoration: none;font: inherit;">更多合作网站</a><img src="../resource/images/turnb.png" alt="turnb.png" style="clear: both;position: relative;top: 3px;">
     </div>
 </div>
 
@@ -59,4 +64,21 @@
     CopyRight&copy;1号店网上超市 2007-2016 , All Rights Reserved
 </footer>
 </body>
+
+<script>
+    const imgStyle = document.getElementsByClassName('bottom-img-style');
+    for (let i = 0; i < imgStyle.length; i++) {
+        imgStyle[i].addEventListener('mouseover', function () {
+            this.src = '../resource/images/l_' + (i + 1) + '_h.png';
+            //鼠标移入时，鼠标样式变为手型
+            this.style.cursor = 'pointer';
+        })
+        imgStyle[i].addEventListener('mouseout', function () {
+            this.src = '../resource/images/l_' + (i + 1) + '.png';
+        })
+    }
+
+</script>
+
+
 </html>
