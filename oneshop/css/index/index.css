@@ -50,11 +50,13 @@ a {
     margin: 50px auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
     /*align-items: center;*/
 }
 
 /*div{*/
-/*    border: 1px solid red;*/
+/*    border: 1px solid blue;*/
 /*}*/
 
 .search-input {
@@ -62,8 +64,6 @@ a {
     border: 2px solid #E2231A;
     width: 500px;
     height: 40px;
-    display: inline-block;
-    float: left;
 }
 
 .search-input:focus {
@@ -89,7 +89,7 @@ a {
     top: 80px;
     left: 500px;
     width: 600px;
-
+    clear: both;
 }
 
 .search-input::placeholder {
@@ -112,9 +112,10 @@ a {
     text-align: center;
     line-height: 35px;
     font-size: smaller;
+    overflow: hidden;
     margin-right: 10%;
-
 }
+
 
 .car-button:hover {
     background-color: #E2231A;
@@ -128,6 +129,7 @@ a {
     width: 70%;
     margin: 0 auto;
 }
+
 
 .footer-content-child {
     display: flex;
@@ -153,16 +155,25 @@ a {
 }
 
 footer {
+    width: 1500px;
+    margin: 70px auto;
+}
+
+.footer-footer {
     display: flex;
     justify-content: space-between;
     margin-top: 10%;
 }
 
+/*div{*/
+/*    border: 1px solid blue;*/
+/*}*/
+
 .footer-left {
     margin-right: auto;
     display: flex;
     width: 60%;
-    margin-left: 5%;
+    margin-left: 50px;
     justify-content: space-between;
     align-items: flex-start;
 
@@ -173,6 +184,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     line-height: 100%;
+
 }
 
 .footer-left-child-head ~ div:hover {
@@ -204,6 +216,9 @@ footer {
     display: flex;
     justify-content: center;
     width: 30%;
+    position: relative;
+    right: 35px;
+    bottom: 20px;
 }
 
 /*div{*/
@@ -216,22 +231,23 @@ footer {
 /*    list-style: none;*/
 /*}*/
 
-nav{
+nav {
     width: 100%;
     margin: 0 auto;
     border-bottom: 2px solid #E35817;
 
 }
+
 .nav {
     width: 80%;
     display: flex;
-    margin-left: -0.8%;
+    margin-left: -6px;
     justify-content: flex-start;
-    list-style: none;
+
 
 }
 
-.nav>li {
+.nav > li {
     display: flex;
     height: 40px;
     width: 200px;
@@ -240,22 +256,25 @@ nav{
     margin-left: 1%;
 
 }
-.nav>li:hover {
+
+.nav > li:hover {
     color: #E2231A;
     cursor: pointer;
 }
 
-.main-content{
-    width: 95%;
+.main-content {
+    width: 1500px;
     margin: 0 auto;
+    /*border: 1px solid blue;*/
 }
 
-.content-fun{
-    margin-top:-0.25%;
+.content-fun {
+    margin-top: -0.25%;
     display: flex;
+    justify-content: flex-start;
 }
 
-.sep-ul{
+.sep-ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -263,13 +282,13 @@ nav{
     list-style: none;
     width: 150%;
     height: 100%;
-
-    border: 1px solid #7cef1e;
-
+    /*border: 1px solid #7cef1e;*/
     margin-top: 2%;
+    position: relative;
+
 }
 
-.sep-ul>li{
+.sep-ul > li {
     color: white;
     height: 50px;
     margin-left: 5%;
@@ -277,27 +296,74 @@ nav{
     align-items: center;
 }
 
-.sep-ul>li:hover{
+.sep-ul > li:hover {
     cursor: pointer;
-    transform: translate(20px,0);
+    transform: translate(20px, 0);
     transition: all 0.5s;
 }
 
 
-.sep-ul-first-div{
+.sep-ul-first-div {
     color: white;
     margin-left: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3%;width: 3%;
+    height: 3%;
+    width: 3%;
     margin-right: 8%;
 }
 
 
-.sep-arrow{
+.sep-arrow {
     position: absolute;
     /*left: 20%;*/
     float: right;
     margin-left: 220px;
+}
+
+/*div{*/
+/*    border: 1px solid blue;*/
+/*}*/
+
+.center-pic{
+    position: relative;
+    left: 95px;
+    top: 4px;
+    height: 504px;
+    width: 950px;
+    background-color: #3fa9f5;
+    background-image: url("../../resource/images/ban1.jpg");
+    background-size: 100% 100%;
+}
+
+.horizontal-li>li{
+    display: inline-block;
+    list-style: none;
+    position: relative;
+}
+
+.horizontal-li>li>div:hover{
+    cursor: pointer;
+    color: #E2231A;
+}
+
+.circle-li>li>div{
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.li-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 504px;
+    width: 950px;
+}
+
+.li-div{
+    z-index: 9;
 }
