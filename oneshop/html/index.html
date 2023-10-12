@@ -230,11 +230,88 @@
                     </li>
                 </ul>
             </div>
+
         </div>
 
-        <div>ccc</div>
+        <div class="news">
+            <div>
+                <div style="text-decoration: none;color: #333333;font-size: 20px;font-weight: bold;line-height: 50px;float: left;margin-left: 1em;display: inline-block;">
+                    快讯
+                </div>
+                <a href=""
+                   style="text-decoration: none;color: #626262;font-size: 5px;line-height: 50px;margin-right: 1em;display: inline-block;float: right;">更多&gt;</a>
+                <hr style="clear: both;border-bottom: 0.5px dashed grey;border-top: none;">
+            </div>
+            <div class="news-content">
+                <div><strong>【特惠】</strong><span>观一轮明月 表无尽惦念</span></div>
+                <div><strong>【公告】</strong><span>好奇金装成长裤新品上市</span></div>
+                <div><strong>【特惠】</strong><span>大牌闪购⚪抢！</span></div>
+                <div><strong>【公告】</strong><span>发福利 买车就抢千元油卡</span></div>
+                <div><strong>【公告】</strong><span>家电低至五折</span></div>
+            </div>
+            <hr>
+            <div>
+                <div style="color: #333333;font-size: 20px;font-weight: bold;line-height: 50px;margin-left: 1em;">
+                    1号钱包
+                </div>
+                <hr>
+                <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 38px;">
+                    <div style="width: 90%;margin-bottom: 5px;margin-top: 5px;">收益日结，收益赚High!</div>
+                    <img src="../resource/images/oneAD.jpg" alt="oneAD.jpg" width="90%">
+                </div>
+            </div>
+
+        </div>
     </div>
 
+    <div style="display: flex; justify-content: space-around;width: 100%;align-items: center;margin-top: 20px;">
+        <div style="background-color: #DAEDFC;color: white;text-align: center;display: flex;flex-direction: column; width: 350px;">
+            <img src="../resource/images/l_img.jpg" alt="l_img.jpg" style="width: 280px;height: 255px;margin: 0 auto;">
+            <div style="background-color: orangered;display: inline-block;width: 80px;margin: 0 auto 10px auto;">￥53.00</div>
+        </div>
+
+        <div class="pic-group">
+            <div>
+                <img src="../resource/images/hot1.jpg" alt="hot1.jpg">
+                <strong>德国进口</strong>
+                <p>德亚全脂纯牛奶200ml*48盒</p>
+                <span>￥39.9</span>
+                <div style="position: absolute;margin-top:5px;margin-left: 5px;">
+                    <img src="../resource/images/hot.png" alt="hot.png">
+                </div>
+            </div>
+            <div>
+                <img src="../resource/images/hot2.jpg" alt="hot2.jpg">
+                <strong>iphone 6s</strong>
+                <p>Apple/苹果 iPhone6s Plus公开版</p>
+                <span>￥5288</span>
+                <div style="position: absolute;margin-top:5px;margin-left: 5px;">
+                    <img src="../resource/images/hot.png" alt="hot.png">
+                </div>
+            </div>
+            <div>
+                <img src="../resource/images/hot3.jpg" alt="hot3.jpg">
+
+                <strong>倩碧特惠组合套装</strong>
+                <p>倩碧补水组特惠组合套装8折促销</p>
+                <span>￥368</span>
+                <div style="position: absolute;margin-top:5px;margin-left: 5px;">
+                    <img src="../resource/images/hot.png" alt="hot.png">
+                </div>
+            </div>
+            <div>
+                <img src="../resource/images/hot4.jpg" alt="hot4.jpg">
+                <strong>品利特级橄榄油</strong>
+                <p>750ml*4瓶装组合 西班牙原装进口</p>
+                <span>￥280</span>
+                <div style="position: absolute;margin-top:5px;margin-left: 5px;">
+                    <img src="../resource/images/hot.png" alt="hot.png">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
 
@@ -362,7 +439,6 @@
 <script>
     const li_div = document.getElementsByClassName('li-div');
     const li_img = document.getElementsByClassName('center-pic');
-    let str = '';
     for (let i = 0; i < li_div.length; i++) {
         li_div[i].addEventListener('mouseover', function () {
             li_div[i].style.backgroundColor = 'red';

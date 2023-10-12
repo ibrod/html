@@ -124,6 +124,7 @@ a {
 }
 
 .footer-content {
+    clear: both;
     display: flex;
     justify-content: space-between;
     width: 70%;
@@ -135,6 +136,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: baseline;
+    justify-content: center;
     text-align: center;
 }
 
@@ -265,13 +267,15 @@ nav {
 .main-content {
     width: 1500px;
     margin: 0 auto;
-    /*border: 1px solid blue;*/
+    border: 1px solid #51a111;
+    position: relative;
 }
 
 .content-fun {
     margin-top: -0.25%;
     display: flex;
     justify-content: flex-start;
+    position: relative;
 }
 
 .sep-ul {
@@ -366,4 +370,51 @@ nav {
 
 .li-div{
     z-index: 9;
+}
+
+.news{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border:1px solid #c8c8c8;
+    position: absolute;
+    margin-top: 1px;
+    right: 1px;
+    top: 1px;
+    width: 250px;
+}
+
+.news-content{
+    line-height: 40px;
+}
+
+.news-content>div:hover{
+    cursor: pointer;
+    color: #E2231A;
+}
+
+/*div{*/
+/*    border: 1px solid blue;*/
+/*}*/
+
+.pic-group{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-right: 10px;
+}
+
+.pic-group>div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #c8c8c8;
+    width: 25%;
+}
+.pic-group>div>p{
+    color: grey;
+}
+
+.pic-group>div>span{
+    color: red;
 }
