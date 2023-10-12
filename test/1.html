@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>响应式布局</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 1px solid red;
+        }
+
+        .container {
+            display: flex;
+            /*align-items: center;*/
+            padding: 10px;
+            flex-direction: row;
+            justify-content: space-between;
+            /*这种布局是默认的，还有很多布局方式，比如flex-direction: column;就是垂直布局，flex-direction: row-reverse;就是反向水平布局，flex-direction: column-reverse;就是反向垂直布局*/
+
+            /*flex-wrap: wrap-reverse;//当屏幕宽度不够时，换行，且反向换行*/
+            /*flex-wrap: wrap;//当屏幕宽度不够时，换行*/
+            /*flex-wrap: nowrap;//当屏幕宽度不够时，不换行，呈现的效果是挤在一起，这是默认的*/
+
+            /*justify-content:flex-end;//当文字过多时，文字靠右显示*/
+            /*justify-content: space-between;//当文字过多时，文字均匀分布*/
+            /*justify-content: space-around;//当文字过多时，文字均匀分布，且两边的距离是中间的一半*/
+        }
+
+        .logo {
+            flex-grow: 1;
+        }
+
+        .search {
+            flex-grow: 3;
+        }
+
+        .cart {
+            /*flex-grow: 1;*/
+            height: 10px;
+            align-self: flex-end;
+        }
+
+        /*!* 响应式布局 *!*/
+        /*@media (max-width: 768px) {*/
+        /*    .container {*/
+        /*        flex-direction: column;*/
+        /*    }*/
+
+        /*    .logo, .search, .cart {*/
+        /*        width: 100%;*/
+        /*        margin-bottom: 10px;*/
+        /*    }*/
+        /*}*/
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="logo">Logo</div>
+    <div class="search">搜索框</div>
+<!--    <div class="cart">-->
+<!--        购物车dddddddddddddddddddddddddffffffffffffffffddddddddddddddddfdsfdsfdsfshuiffffffffffffffffffhuiffffffffffffffffffffffffffffffffffffffffffd-->
+<!--    </div>-->
+    <div class="cart">购物车</div>
+</div>
+</body>
+</html>
