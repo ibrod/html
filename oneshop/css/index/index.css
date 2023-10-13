@@ -135,7 +135,7 @@ a {
 .footer-content-child {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
     text-align: center;
 }
@@ -267,7 +267,7 @@ nav {
 .main-content {
     width: 1500px;
     margin: 0 auto;
-    border: 1px solid #51a111;
+    /*border: 1px solid #51a111;*/
     position: relative;
 }
 
@@ -413,6 +413,11 @@ nav {
     width: 25%;
 }
 
+.pic-group > div:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px #888888;
+}
+
 .pic-group > div > p {
     color: grey;
 }
@@ -427,6 +432,7 @@ nav {
     opacity: 50%;
     height: 50px;
     position: absolute;
+    text-align: center;
     top: 40%;
     line-height: 50px;
 }
@@ -439,6 +445,10 @@ nav {
 .grey-a > a {
     color: grey;
     text-decoration: none;
+}
+
+.grey-a > a:hover {
+    color: #E2231A;
 }
 
 .fresh-left {
@@ -462,14 +472,23 @@ nav {
 }
 
 .fresh-right > div {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    margin: 0 auto;
     width: 25%;
+    height: 50%;
     border-bottom: 1px solid #c8c8c8;
     border-right: 1px solid #c8c8c8;
     float: left;
-    margin: 0;
 }
+.fresh-right > div:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px #888888;
+}
+
 
 /*div {*/
 /*    border: 1px solid blue;*/
@@ -480,4 +499,14 @@ nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.grey-font{
+    color: grey;
+    font-size: 15px;
+}
+
+.orangered-font{
+    color: orangered;
+    font-size: 15px;
 }
