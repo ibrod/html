@@ -1,0 +1,83 @@
+.detail-content {
+
+}
+
+.detail-path {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.font-grey {
+    color: grey;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.price {
+    color: orangered;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.div-box {
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+    color: #888888;
+    border: 1px solid #ccc;
+    float: left;
+    margin-left: 10px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+.div-box:hover {
+    cursor: pointer;
+    color: orangered;
+}
+
+
+/*div{*/
+/*    border: 1px solid blue;*/
+/*}*/
+
+.add-to-cart {
+    display: inline-block;
+    margin-left: 20px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: orangered;
+    color: white;
+}
+
+.add-to-cart:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    color: black;
+}
+
+.right-card{
+    border: 1px solid #c8c8c8;
+    float: right;
+}
+
+.right-card-box{
+    background-color: #e5e5e5;
+    color: #373B3C;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+.right-card-box:hover{
+    color: orangered;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
