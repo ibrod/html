@@ -63,12 +63,12 @@
     color: black;
 }
 
-.right-card{
+.right-card {
     border: 1px solid #c8c8c8;
     float: right;
 }
 
-.right-card-box{
+.right-card-box {
     background-color: #e5e5e5;
     color: #373B3C;
     text-align: center;
@@ -76,8 +76,128 @@
     line-height: 50px;
 }
 
-.right-card-box:hover{
+.right-card-box:hover {
     color: orangered;
     cursor: pointer;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
+
+.show-pic {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    margin-top: 20px;
+    float: left;
+}
+
+.left-content-card {
+    clear: both;
+    width: 250px;
+    border: 1px solid white;
+    margin-top: 20px;
+    float: left;
+}
+
+.left-content-card > div {
+    height: 248px;
+    float: left;
+    width: 248px;
+    border: 1px solid #f3f3f3;
+    text-align: center;
+    /*line-height: 248px;*/
+}
+
+.left-content-card > div > img {
+    margin-top: 10px;
+}
+
+.recommend {
+    margin-top: 22px;
+    margin-bottom: 20px;
+    margin-left: -2px;
+    font-size: 14px;
+    color: #999;
+    float: left;
+}
+
+.orange-top-box {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    border-top: 2px solid orangered;
+    border-bottom: 3px solid white;
+    text-indent: 0;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.detail-pic-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1250px;
+    border: 1px solid #f3f3f3;
+    height: 300px;
+    text-align: center;
+}
+
+.detail-pic-group > div {
+    width: 250px;
+    height: 300px;
+    text-align: center;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-detail {
+    margin-top: 22px;
+    margin-bottom: 20px;
+    margin-left: -2px;
+    width: 1250px;
+    font-size: 14px;
+    color: #999;
+    float: left;
+    border: 1px solid #f3f3f3;
+}
+
+.detail-pic {
+    margin-top: 22px;
+    margin-bottom: 20px;
+    margin-left: -2px;
+    font-size: 14px;
+    width: 1250px;
+    color: #999;
+    float: left;
+    border: 1px solid #f3f3f3;
+}
+
+.content-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.comment {
+    width: 1250px;
+    float: right;
+}
+
+.comment-rate-card{
+    border: 1px solid #f3f3f3;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*div{*/
+/*    border: 1px solid blue;*/
+/*}*/
