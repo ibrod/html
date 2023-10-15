@@ -188,14 +188,63 @@
 .comment {
     width: 1250px;
     float: right;
+    border: 1px solid #f3f3f3;
 }
 
-.comment-rate-card{
-    border: 1px solid #f3f3f3;
+.comment-rate-card {
+    border: 1px solid #dedede;
     width: 90%;
     margin: 0 auto;
+    height: 150px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.comment-content {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-content > div {
+    border-bottom: 1px solid #b9b9b9;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.comment-content > div > div {
+    display: inline-block;
+    float: left;
+    margin-right: 200px;
+    height: 80px;
+    line-height: 25px;
+}
+
+.comment-pages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.comment-pages > div {
+    padding: 10px 20px;
+    border: 1px solid #dedede;
+    color: #999;
+    cursor: pointer;
+}
+
+.comment-pages > div:hover {
+    background-color: orangered;
+    color: white;
 }
 
 /*div{*/
