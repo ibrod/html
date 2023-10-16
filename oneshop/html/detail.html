@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>HomePage</title>
+    <title>Detail</title>
     <link rel="stylesheet" href="../css/index/index.css ">
 
     <link rel="stylesheet" href="../css/detail/detail.css">
@@ -300,8 +300,8 @@
     <div class="item-detail">
         <div style="background-color: #f3f3f3;color: #333333;line-height: 35px;margin-bottom: 30px;">
             <div class="orange-top-box">商品属性</div>
-            <div class="orange-top-box" style="background-color: #f3f3f3;border: none;">商品详情</div>
-            <div class="orange-top-box" style="background-color: #f3f3f3;border: none;">商品评论</div>
+            <div class="orange-top-box" style="background-color: #f3f3f3;border: none;"><a href="#detailContent" style="color: inherit;font: inherit;text-decoration: inherit;">商品详情</a></div>
+            <div class="orange-top-box" style="background-color: #f3f3f3;border: none;"><a href="#detailComment" style="color: inherit;font: inherit;text-decoration: inherit;">商品评论</a></div>
         </div>
         <div>
             <table style="width: 100%;line-height: 40px;font-size: 18px;margin-top: 50px;margin-bottom: 40px;margin-left: 50px;">
@@ -324,7 +324,7 @@
         </div>
     </div>
 
-    <div class="detail-pic">
+    <div class="detail-pic" id="detailContent">
         <div class="orange-top-box"
              style="background-color: #f3f3f3;color: #333333;line-height: 50px;width: 1248px;margin-bottom: 30px;text-align: left;">
             商品详情
@@ -359,7 +359,7 @@
             商品评论
         </div>
 
-        <div class="comment-rate-card">
+        <div class="comment-rate-card" id="detailComment">
             <div style="text-align: center;display: inline-block;width: 200px;">
                 <p style="color: orangered;font-size: 50px;">80.0%</p>
                 <p style="color: orangered;font-size: 30px;">好评度</p>
@@ -596,16 +596,15 @@
 </body>
 
 <script>
-    //通过class查找元素
     const divBox = document.getElementById('selectLength').getElementsByClassName('div-box');
     for (let i = 0; i < divBox.length; i++) {
         divBox[i].onclick = function () {
             for (let j = 0; j < divBox.length; j++) {
-                divBox[j].style.backgroundImage = 'none'
-                divBox[j].style.border = "1px solid #ccc";
+                divBox[j].classList.remove('selected');
+                divBox[j].style.backgroundImage = 'none';
             }
-            divBox[i].style.backgroundImage = `url(../resource/images/ch.png)`;
-            divBox[i].style.borderColor = "orangered";
+            divBox[i].classList.add('selected');
+            divBox[i].style.backgroundImage = 'url(../resource/images/ch.png)';
         }
     }
 
@@ -613,13 +612,14 @@
     for (let i = 0; i < divBox2.length; i++) {
         divBox2[i].onclick = function () {
             for (let j = 0; j < divBox2.length; j++) {
-                divBox2[j].style.backgroundImage = 'none'
-                divBox2[j].style.border = "1px solid #ccc";
+                divBox2[j].classList.remove('selected');
+                divBox2[j].style.backgroundImage = 'none';
             }
-            divBox2[i].style.backgroundImage = `url(../resource/images/ch.png)`;
-            divBox2[i].style.borderColor = "orangered";
+            divBox2[i].classList.add('selected');
+            divBox2[i].style.backgroundImage = 'url(../resource/images/ch.png)';
         }
     }
+
 </script>
 
 </html>

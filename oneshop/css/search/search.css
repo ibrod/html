@@ -34,6 +34,11 @@
     float: left;
 }
 
+.orangered-button:hover {
+    color: orangered;
+    border-color: orangered;
+}
+
 .search-detail-content {
     width: 83%;
     height: 100%;
@@ -61,10 +66,42 @@
     line-height: 30px;
 }
 
+.search-detail-content > div:hover > div> .add-cart {
+    background-color: orangered;
+    color: white;
+}
+
+.add-cart {
+
+}
+
+.collection{
+
+}
+
+
+.search-detail-content > div:hover {
+    box-shadow: 0 0 10px #888888;
+}
+
+
+.search-detail-content > div:hover > p {
+    color: orangered;
+    cursor: pointer;
+}
+
+.search-detail-content > div > img:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.5s;
+}
+
+
 .search-detail-content-button {
     border: 1px solid #a2a2a2;
     padding: 0 10px;
 }
+
 .search-detail-content-button:hover {
     cursor: pointer;
     background-color: orangered;
