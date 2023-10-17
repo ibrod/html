@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scala
+    <title>Document</title>ble=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+
+</body>
+
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    let name,age;
+    name=prompt("请输入姓名");
+    age=prompt("请输入年龄");
+
+    alert(name);
+    let alice = new Person(name, age);
+
+    Person.prototype.sayHello = function() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old!`);
+    };
+
+    alice.sayHello();  // Output: Hello, my name is Alice
+
+    let n=5,m=5;
+    let nu=[];
+    for(let i=1;i<=n;i++){
+        nu[i]=[];
+        for(let j=1;j<=m;j++){
+            nu[i][j]=0;
+        }
+    }
+
+    console.log(nu);
+
+
+</script>
+
+</html>

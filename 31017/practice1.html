@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice1</title>
+    <script>
+        let country= ["America","Greece","Britain","Canada","China","Egypt"];
+        let cnt=0;
+        for(let word of country){
+            document.write(word+"<br>");
+            if(word.indexOf("a")>=0||word.indexOf("A")>=0){
+                cnt++;
+            }
+        }
+        document.write(`共有${cnt}个字符串中含有a或A`);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
