@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // const sepOut = setInterval(() => {
+        //   window.open("https://www.baidu.com");
+        // }, 5000);
+        window.onload = function () {
+            alert("页面加载完成,当前网页的URL是:\n" + window.location.href);
+            let btn = document.createElement("button");
+            btn.innerText = "点击";
+            btn.addEventListener("blur", function () {//失去焦点
+                alert("专心点击按钮");
+            });
+            btn.onclick = function () {
+                window.open("https://www.baidu.com");
+            }
+            document.body.appendChild(btn);
+        }
+
+        window.addEventListener('beforeunload', function (e) {
+            var confirmationMessage = '确定要关闭此页面吗？';
+            e.returnValue = confirmationMessage;  // 兼容一些旧版本的浏览器
+            return confirmationMessage;           // 兼容一些旧版本的浏览器
+        });
+
+        //Chrome可能要求在页面上有某种用户交互（如点击、键盘输入等）后才会触发 beforeunload 事件。如果您直接打开一个页面并立即尝试关闭它，beforeunload 可能不会触发。
+        //Chrome（以及其他一些现代浏览器）可能不会显示您提供的自定义消息。相反，它们会显示一个标准的默认消息。
+
+        window.onresize = function () {
+            alert("窗口大小发生变化");
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
