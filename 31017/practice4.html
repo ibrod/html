@@ -7,31 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>practice4</title>
     <script>
-        const inputNum = function (str="",min=0,max=Number.MAX_SAFE_INTEGER) {
-            let x;
-            while (true) {
-                x = prompt(str);
-                if (isNaN(x)||x<min||x>max) {
-                    alert('输入错误，请重新输入');
-                }else{
-                    break;
+            const inputNum = function (str = "", min = 0, max = Number.MAX_SAFE_INTEGER) {
+                let x;
+                while (true) {
+                    x = prompt(str);
+                    if (x===""||isNaN(x) || x < min || x > max || x===null) {
+                        alert('输入错误，请重新输入');
+                    } else {
+                        break;
+                    }
                 }
+                return parseInt(x);
             }
-            return parseInt(x);
+            const startCalc = function () {
+                let n = inputNum("请输入考试的科目数", 1);
+            let sum = 0;
+
+            for (let i = 1; i <= n; i++) {
+                sum += inputNum(`请输入第${i}门课的成绩[0,100]`, 0, 100);
+            }
+
+            alert(`${n}门科目的总成绩是${sum}`);
         }
-
-        let n=inputNum("请输入考试的科目数",min=1);
-        let sum=0;
-
-        for(let i=1;i<=n;i++){
-            sum+=inputNum(`请输入第${i}门课的成绩`,0,100);
-        }
-
-        alert(`${n}门科目的总成绩是${sum}`);
 
     </script>
 </head>
 <body>
-
+<button onclick="startCalc()">开始计算总成绩</button>
 </body>
 </html>
