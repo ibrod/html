@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>你好，欢迎访问贵美商城！</h2>
+<span>现在的时间是:</span>
+<span id="nowTimeContainer"></span>
+</body>
+<script>
+    nowTimeContainer = document.getElementById("nowTimeContainer");
+    setInterval(() => {
+        let nowTime = new Date();
+        let year = nowTime.getFullYear();
+        let month = nowTime.getMonth() + 1;
+        let date = nowTime.getDate();
+        let hour = nowTime.getHours();
+        let minute = nowTime.getMinutes();
+        let second = nowTime.getSeconds();
+        let week = nowTime.getDay();
+        let weekBuk = ["日", "一", "二", "三", "四", "五", "六"];
+        let sepTime;
+        if(hour > 12) {
+            hour -= 12;
+            sepTime = "PM";
+        }else{
+            sepTime = "AM";
+        }
+        nowTimeContainer.innerText = `${year}年${month}月${date}日  ${hour}:${minute}:${second} ${sepTime}  星期${weekBuk[week]}`;
+    }, 1000);
+</script>
+</html>

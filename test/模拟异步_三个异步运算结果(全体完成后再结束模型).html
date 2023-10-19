@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模拟异步_三个异步运算结果</title>
+    <script>
+        const calculateResult1 = function() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('Result 1');
+                }, 1000);
+            });
+        }
+
+        const calculateResult2 = function() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('Result 2');
+                }, 2000);
+            });
+        }
+
+        const calculateResult3 = function() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('Result 3');
+                }, 3000);
+            });
+        }
+
+        const stopCalculation = function() {
+            return new Promise((_, reject) => {
+                setTimeout(() => {
+                    reject('Calculation stopped by the user.');
+                }, 1500);
+            });
+        }
+
+        const main = async function() {
+            const results = await Promise.allSettled([
+                calculateResult1(),
+                calculateResult2(),
+                calculateResult3(),
+                stopCalculation()
+            ]);
+
+            for (const result of results) {
+                if (result.status === 'fulfilled') {
+                    console.log(result.value);
+                } else {
+                    console.error(result.reason);
+                }
+            }
+        }
+
+        main();  // 执行主函数
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
