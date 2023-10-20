@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns:30px 1fr 2fr;
+            background-color: pink;
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 30px auto 30px;
+        }
+
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            grid-template-rows: repeat(2, 50px);
+            justify-content: space-evenly;
+            align-content: end;
+            height: 200px;
+        //和flex布局一样，可以设置justify-content属性，来调整子元素的位置
+        }
+
+        .grid4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 30px 30px;
+            justify-content: space-between;
+        }
+
+        .grid5 {
+            display: grid;
+            grid-template-columns:repeat(auto-fill,50px);
+            gap: 30px 100px;
+            justify-content: center;
+        }
+
+
+        div {
+            border: 1px solid red;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="grid">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+
+<div class="grid2">
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+
+<div class="grid3">
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+    <div>13</div>
+    <div>14</div>
+</div>
+
+<div class="grid4">
+    <div>15</div>
+    <div>16</div>
+    <div>17</div>
+    <div>18</div>
+    <div>19</div>
+    <div>20</div>
+    <div>21</div>
+    <div>22</div>
+</div>
+
+<div class="grid5">
+    <div>23</div>
+    <div>24</div>
+    <div>25</div>
+    <div>26</div>
+    <div>27</div>
+    <div>28</div>
+    <div>29</div>
+    <div>40</div>
+</div>
+
+
+<div class="grid2">
+    <aside>左侧导航栏</aside>
+    <main>右侧内容展示</main>
+</div>
+</body>
+</html>
