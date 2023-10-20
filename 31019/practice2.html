@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        main {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tbody {
+            text-align: center;
+            border: 1px solid #bbbbbb;
+        }
+
+        tbody > tr > td {
+            border: 1px solid #bbbbbb;
+        }
+
+    </style>
+
+</head>
+<body>
+<main>
+    <table>
+        <tr>
+            <td><img src="./resource/spring.webp" alt="" width="600"></td>
+            <td><img src="./resource/summer.webp" alt="" width="600"></td>
+        </tr>
+        <tr>
+            <td><a href="./spring.html">春</a></td>
+            <td><a href="./summer.html">夏</a></td>
+        </tr>
+        <tr>
+            <td><img src="./resource/autumn.webp" alt="" width="600"></td>
+            <td><img src="./resource/winter.webp" alt="" width="600"></td>
+        </tr>
+        <tr>
+            <td><a href="./autumn.html">秋</a></td>
+            <td><a href="./winter.html">冬</a></td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="javascript:void(0)" onclick="refresh()">刷新本页</a></td>
+        </tr>
+    </table>
+</main>
+</body>
+<script>
+    const refresh = function () {
+        window.location.reload();
+    }
+</script>
+</html>

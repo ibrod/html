@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        .header-nav {
+            border-bottom: 1px solid #e3e3e3;
+            height: 65px;
+            line-height: 30px;
+        }
+
+        .redOrange-button {
+            background-color: orangered;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            float: right;
+
+        }
+
+        .info-nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        main {
+            margin: 20px auto;
+            width: 800px;
+            text-align: center;
+        }
+
+        .cart-card {
+            clear: both;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            height: 100px;
+            line-height: 100px;
+            border: 1px solid #e3e3e3;
+        }
+
+        .operation {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .operation > a {
+            text-decoration: none;
+            color: grey;
+            line-height: 150%;
+        }
+
+        .operation > a:hover {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+<header class="header-nav">
+    <img src="./resource/dangdang.jpg" alt="" style="float: left;">
+    <div class="redOrange-button" onclick="exitPage()">关闭</div>
+</header>
+<main>
+    <div class="info-nav">
+        <span><input type="checkbox" name="selectAll" id="selectAll"><label for="selectAll">全选</label></span>
+        <span>商品信息</span>
+        <span>单价（元）</span>
+        <span>数量</span>
+        <span>金额</span>
+        <span>操作</span>
+    </div>
+    <div style="float: left;margin-top: 30px;">
+        <span><input type="checkbox" name="selfOp" id="selfOp"><label for="selfOp"><img
+                src="./resource/dangdangselfop.png" alt=""></label></span>
+    </div>
+
+    <div class="cart-card">
+        <span style="line-height: 50px;display: flex;align-items: center;">
+            <input type="checkbox" name="choseItem1" id="choseItem1">
+            <label for="choseItem1">
+                <img src="./resource/book.png" alt="">
+            </label>
+        </span>
+        <span>白岩松:白说</span>
+        <span>￥21.90</span>
+        <span><input type="number" name="numOfItems1" id="numOfItems1" style="width: 50px;" min="1" value="1"></span>
+        <span id="subTotal1">￥21.90</span>
+        <div class="operation">
+            <a href="javascript:void(0)" onclick="collect()">移入收藏</a>
+            <a href="javascript:void(0)" onclick="deleteItem()">删除</a>
+        </div>
+    </div>
+    <div class="cart-card">
+        <span style="line-height: 50px;display: flex;align-items: center;">
+            <input type="checkbox" name="choseItem2" id="choseItem2">
+            <label for="choseItem2">
+                <img src="./resource/book2.png" alt="">
+            </label>
+        </span>
+        <span>鸟上书店</span>
+        <span>￥24</span>
+        <span><input type="number" name="numOfItems2" id="numOfItems2" style="width: 50px;" min="1" value="1"></span>
+        <span id="subTotal2">￥24</span>
+        <div class="operation">
+            <a href="javascript:void(0)" onclick="collect()">移入收藏</a>
+            <a href="javascript:void(0)" onclick="deleteItem()">删除</a>
+        </div>
+    </div>
+
+    <div>
+        <span>金额总计:</span>
+        <span id="sumTotal">￥0.00</span>
+    </div>
+
+    <div id="submitDetail" class="redOrange-button" style="display: flex;justify-content: center;margin-top: 20px;"
+         onclick="pay()">
+        结算
+    </div>
+
+</main>
+</body>
+<script>
+    const exitPage = function () {
+        window.close();
+    }
+
+    const collect = function () {
+        alert("收藏成功");
+    }
+
+    const deleteItem = function () {
+        alert("删除成功");
+    }
+
+
+    const checkBox1 = document.getElementById("choseItem1");
+    const checkBox2 = document.getElementById("choseItem2");
+
+    const selectAll = document.getElementById("selectAll");
+    const selfOp = document.getElementById("selfOp");
+
+    const numOfItems1 = document.getElementById("numOfItems1");
+    const numOfItems2 = document.getElementById("numOfItems2");
+
+    const subTotal1 = document.getElementById("subTotal1");
+    const subTotal2 = document.getElementById("subTotal2");
+
+    const sumTotal = document.getElementById("sumTotal");
+
+    const submitDetail = document.getElementById("submitDetail");
+
+    const calcSumTotal = function () {
+        let sum = 0;
+        if (checkBox1.checked) {
+            sum += numOfItems1.value * 21.90;
+        }
+        if (checkBox2.checked) {
+            sum += numOfItems2.value * 24;
+        }
+        sumTotal.innerText = "￥" + sum.toFixed(2);
+    }
+
+    numOfItems1.addEventListener("change", function () {
+        if (numOfItems1.value < 1) {
+            numOfItems1.value = 1;
+            alert("数量不能小于1")
+        }
+        if (numOfItems1.value % 1 !== 0) {
+            numOfItems1.value = Math.floor(numOfItems1.value);
+            alert("数量必须为整数")
+        }
+        subTotal1.innerText = "￥" + (numOfItems1.value * 21.90).toFixed(2);
+        calcSumTotal();
+    });
+
+    numOfItems2.addEventListener("change", function () {
+        if (numOfItems2.value < 1) {
+            numOfItems2.value = 1;
+            alert("数量不能小于1")
+        }
+        if (numOfItems2.value) {
+            numOfItems2.value = Math.floor(numOfItems2.value);
+            alert("数量必须为整数")
+        }
+        subTotal2.innerText = "￥" + (numOfItems2.value * 24).toFixed(2);
+        calcSumTotal();
+    });
+
+    checkBox1.addEventListener("change", function () {
+        let sum = 0;
+        calcSumTotal();
+    });
+
+    checkBox2.addEventListener("change", function () {
+        let sum = 0;
+        calcSumTotal();
+    });
+
+    selfOp.addEventListener("change", function () {
+        checkBox1.checked = selfOp.checked;
+        checkBox2.checked = selfOp.checked;
+        selectAll.checked = false;
+        calcSumTotal();
+
+    });
+
+    selectAll.addEventListener("change", function () {
+        selfOp.checked = selectAll.checked;
+        checkBox1.checked = selectAll.checked;
+        checkBox2.checked = selectAll.checked;
+        calcSumTotal();
+    });
+
+    submitDetail.addEventListener("click", function () {
+        if (sumTotal.innerText === "￥0.00") {
+            alert("您还没有选择商品");
+        } else {
+            open("./payed.html", "结算页面", "width=500,height=500");
+        }
+    });
+
+
+</script>
+</html>
+

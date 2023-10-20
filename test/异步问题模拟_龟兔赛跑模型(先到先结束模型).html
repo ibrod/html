@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>异步问题模拟:龟兔赛跑</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    // 模拟龟和兔的速度
+    const turtleSpeed = 1000;  // 龟每秒走1步
+    const rabbitSpeed = 500;   // 兔每0.5秒走1步
+
+    // 模拟龟和兔走的总步数
+    const totalSteps = 10;
+
+    // 模拟龟走一步
+    function turtleTakeStep() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("🐢 龟走了一步");
+            }, turtleSpeed);
+        });
+    }
+
+    // 模拟兔子走一步
+    function rabbitTakeStep() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("🐇 兔子走了一步");
+            }, rabbitSpeed);
+        });
+    }
+
+    // 模拟龟走totalSteps步
+    async function turtleRun() {
+        for (let i = 0; i < totalSteps; i++) {
+            console.log(await turtleTakeStep());
+        }
+        return "🐢 龟";
+    }
+
+    // 模拟兔子走totalSteps步
+    async function rabbitRun() {
+        for (let i = 0; i < totalSteps; i++) {
+            console.log(await rabbitTakeStep());
+            // 如果兔子领先3步或更多，兔子就休息
+            if (i - totalSteps / 2 >= 3) {
+                console.log("🐇 兔子觉得领先太多，开始睡觉...");
+                await new Promise(resolve => setTimeout(resolve, 5000)); // 兔子睡5秒
+                console.log("🐇 兔子醒来，继续赛跑...");
+            }
+        }
+        return "🐇 兔子";
+    }
+
+    // 开始比赛
+    async function race() {
+        const winner = await Promise.race([turtleRun(), rabbitRun()]);
+        console.log(`${winner} 赢得了比赛!`);
+    }
+
+    race();
+
+    new Promise(resolve => {
+        setTimeout((_,reject) => {
+            reject("error");
+        }, 2000);
+    });
+
+
+
+</script>
+
+</html>
