@@ -30,23 +30,26 @@
             grid-template-columns: 100px 200px 1fr;
             grid-template-rows: 1fr 1fr;
             row-gap: 10px;
-
+            backdrop-filter: blur(50px);
         }
 
         li > div > div {
-            color: #9b9b9b;
+            color: #565656;
         }
 
         .card {
             display: none;
+            align-items: center;
             position: fixed;
+            padding-bottom: 30px;
             top: 50%;
             left: 50%;
             width: 500px;
-            padding-bottom: 30px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
             transform: translate(-50%, -50%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.555);
         }
 
 
@@ -55,6 +58,20 @@
             flex-direction: column;
             text-align: center;
         }
+
+        body {
+            background: rgb(231,238,174);
+            background: radial-gradient(circle, rgba(231,238,174,1) 0%, rgba(148,215,233,1) 100%);
+        }
+
+        input,textarea,select,option{
+            outline: none;
+            opacity: 0.6;
+        }
+
+        /*div{*/
+        /*    border:1px solid red;*/
+        /*}*/
 
     </style>
 </head>
@@ -68,7 +85,7 @@
                 <div>
                     <img src="./resource/book.png" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
                          height="60">
-                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">如何学习Java web</div>
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">如何学习Java web</div>
                     <div>板块：新课来了</div>
                     <div>
                         <span>发表时间:</span>
@@ -82,8 +99,8 @@
                 <div>
                     <img src="./resource/book2.png" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
                          height="60">
-                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">如何学习课工场课程?</div>
-                    <div>板块：新手报道</div>
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">如何学习课工场课程?</div>
+                    <div>板块：新手报到</div>
                     <div>
                         <span>发表时间:</span>
                         <span>2020-06-12 13:00:00</span>
@@ -97,37 +114,42 @@
     <div class="card">
         <form action="" id="postForm">
             <div>
-                <input type="text" id="textTitle" placeholder="请输入文章标题"
-                       style="margin:30px 30px;height: 30px;width: 300px;line-height: 30px;">
+                <input type="text" id="textTitle" placeholder="请输入文章标题(1~50个字)"
+                       style="margin:30px 30px;height: 30px;width: 300px;line-height: 30px;" maxlength="50">
             </div>
             <div>
                 <label for="sepChoice">请选择板块</label>
                 <select name="sepChoice" id="sepChoice">
+                    <option value="0">------</option>
                     <option value="新课来了">新课来了</option>
                     <option value="新手报到">新手报到</option>
                     <option value="其他">其他</option>
                 </select>
             </div>
             <div>
-                <textarea name="postTextarea" id="postTextarea" cols="30" rows="10" placeholder="文章内容" style="margin-top:30px;"></textarea>
+                <textarea name="postTextarea" id="postTextarea" cols="30" rows="10" placeholder="文章内容"
+                          style="margin-top:30px;resize: none;"></textarea>
             </div>
             <input type="submit" value="发表" class="green-box" style="width: 50%; margin: 10px auto">
-            <div id="back" class="green-box" style="background-color: orange;width: 30%; margin: 10px auto;">返回</div>
+            <input type="button" id="back" class="green-box"
+                   style="background-color: orange;width: 50%; margin: 10px auto;" value="返回">
         </form>
     </div>
-
 </main>
 </body>
 
 <script>
     const pushPost = document.getElementById('pushPost');
+    const card = document.querySelector('.card');
     pushPost.addEventListener('click', function () {
-        document.getElementsByClassName('card')[0].style.display = 'block';
+        card.style.display = 'block';
+        card.style.left = '50%';
+        card.style.top = '50%';
     });
 
     const back = document.getElementById('back');
     back.addEventListener('click', function () {
-        document.getElementsByClassName('card')[0].style.display = 'none';
+        card.style.display = 'none';
     });
 
     const postForm = document.getElementById('postForm');
@@ -159,7 +181,11 @@
         }
         let timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
-        if (title.value !== '') {
+        if (title.value===null||title.value === ''){
+            alert('请输入标题');
+        }else if(sepChoice.value===null||sepChoice.value === '0') {
+            alert('请选择板块');
+        } else {
             const ulPost = document.getElementById('ulPost');
             const li = document.createElement('li');
             li.innerHTML = `
@@ -167,8 +193,8 @@
                 <div>
                     <img src="./resource/summer.webp" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
                          height="60">
-                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">${title.value}</div>
-                    <div>板块:${sepChoice.value}</div>
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">${title.value}</div>
+                    <div>板块：${sepChoice.value}</div>
                     <div>
                         <span>发表时间:</span>
                         <span>${timeStr}</span>
@@ -178,13 +204,85 @@
             `;
             ulPost.insertBefore(li, ulPost.firstElementChild);
             title.value = '';
-            sepChoice.value = '新课来了';
+            sepChoice.value = '0';
             document.getElementById('postTextarea').value = '';
-            document.getElementsByClassName('card')[0].style.display = 'none';
-        } else {
-            alert('请输入标题');
+            card.style.display = 'none';
         }
     });
+
+
+    // 在card元素上添加鼠标按下事件的监听器
+    card.addEventListener('mousedown', function (e) {
+        // 获取被点击元素的标签名，并转换为小写字符串
+        let targetName = e.target.tagName.toLowerCase().toString();
+
+        // 如果被点击的元素不是div，结束函数，不进行拖拽操作
+        if (targetName !== 'div') {
+            return;
+        }
+
+        // 初始化变量dtLeft和dtTop，它们将用于存储鼠标点击位置与card元素左上角之间的水平和垂直距离
+        let dtLeft = null;
+        let dtTop = null;
+
+        // 定义鼠标移动事件的处理函数
+        function mouseMoveHandler(event) {
+            // 如果是第一次移动，计算并存储鼠标点击位置与card元素左上角之间的距离
+            if (dtLeft === null) {
+                // 获取card元素当前的样式
+                let cardCss = getComputedStyle(card);
+                // 计算并存储距离
+                dtLeft = event.clientX - parseInt(cardCss.left, 10);
+                dtTop = event.clientY - parseInt(cardCss.top, 10);
+            }
+            // 根据鼠标的新位置，更新card元素的位置，使其跟随鼠标移动
+            card.style.left = event.clientX - dtLeft + "px";
+            card.style.top = event.clientY - dtTop + "px";
+        }
+
+        // 定义鼠标释放事件的处理函数
+        function mouseUpHandler() {
+            // 移除鼠标移动和鼠标释放事件的监听器，停止拖拽操作
+            document.removeEventListener('mousemove', mouseMoveHandler);
+            document.removeEventListener('mouseup', mouseUpHandler);
+        }
+
+        // 为document添加鼠标移动和鼠标释放事件的监听器
+        // 这样即使鼠标离开了card元素，也能够继续跟踪鼠标的位置，并在释放鼠标时停止拖拽
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    });
+
+
+    // card.addEventListener('mousedown', function (e) {
+    //     let targetName = e.target.tagName.toLowerCase().toString();
+    //     if (targetName !== 'div') {
+    //         return;
+    //     }
+    //
+    //     let dtLeft = null;
+    //     let dtTop = null;
+    //
+    //     function mouseMoveHandler(event) {
+    //         if (dtLeft === null) {
+    //             let cardCss = getComputedStyle(card);
+    //             dtLeft = event.clientX - parseInt(cardCss.left, 10);
+    //             dtTop = event.clientY - parseInt(cardCss.top, 10);
+    //         }
+    //         card.style.left = event.clientX - dtLeft + "px";
+    //         card.style.top = event.clientY - dtTop + "px";
+    //     }
+    //
+    //     function mouseUpHandler() {
+    //         document.removeEventListener('mousemove', mouseMoveHandler);
+    //         document.removeEventListener('mouseup', mouseUpHandler);
+    //     }
+    //
+    //     document.addEventListener('mousemove', mouseMoveHandler);
+    //     document.addEventListener('mouseup', mouseUpHandler);
+    // });
+
+
 
 </script>
 
