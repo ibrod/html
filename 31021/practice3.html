@@ -109,10 +109,10 @@
                 </select>
             </div>
             <div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="文章内容" style="margin-top:30px;"></textarea>
+                <textarea name="postTextarea" id="postTextarea" cols="30" rows="10" placeholder="文章内容" style="margin-top:30px;"></textarea>
             </div>
             <input type="submit" value="发表" class="green-box" style="width: 50%; margin: 10px auto">
-            <div id="back" class="green-box" style="background-color: orange;width: 30%; margin: 10px auto;" >返回</div>
+            <div id="back" class="green-box" style="background-color: orange;width: 30%; margin: 10px auto;">返回</div>
         </form>
     </div>
 
@@ -133,33 +133,33 @@
     const postForm = document.getElementById('postForm');
     postForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        let title = document.getElementById('textTitle').value;
-        let sepChoice = document.getElementById('sepChoice').value;
+        let title = document.getElementById('textTitle');
+        let sepChoice = document.getElementById('sepChoice');
         let dateTime = new Date();
         let year = dateTime.getFullYear();
         let month = dateTime.getMonth() + 1;
-        if(month<10){
-            month = '0'+month;
+        if (month < 10) {
+            month = '0' + month;
         }
         let day = dateTime.getDate();
-        if(day<10){
-            day = '0'+day;
+        if (day < 10) {
+            day = '0' + day;
         }
         let hour = dateTime.getHours();
-        if(hour<10){
-            hour = '0'+hour;
+        if (hour < 10) {
+            hour = '0' + hour;
         }
         let minute = dateTime.getMinutes();
-        if(minute<10){
-            minute = '0'+minute;
+        if (minute < 10) {
+            minute = '0' + minute;
         }
         let second = dateTime.getSeconds();
-        if(second<10){
-            second = '0'+second;
+        if (second < 10) {
+            second = '0' + second;
         }
         let timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
-        if (title !== '') {
+        if (title.value !== '') {
             const ulPost = document.getElementById('ulPost');
             const li = document.createElement('li');
             li.innerHTML = `
@@ -167,8 +167,8 @@
                 <div>
                     <img src="./resource/summer.webp" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
                          height="60">
-                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">${title}</div>
-                    <div>板块:${sepChoice}</div>
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">${title.value}</div>
+                    <div>板块:${sepChoice.value}</div>
                     <div>
                         <span>发表时间:</span>
                         <span>${timeStr}</span>
@@ -177,6 +177,10 @@
                 <hr>
             `;
             ulPost.insertBefore(li, ulPost.firstElementChild);
+            title.value = '';
+            sepChoice.value = '新课来了';
+            document.getElementById('postTextarea').value = '';
+            document.getElementsByClassName('card')[0].style.display = 'none';
         } else {
             alert('请输入标题');
         }

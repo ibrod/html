@@ -232,7 +232,6 @@
 
     card1.addEventListener("click", (e) => {
         if (e.target.className === "op-button-plus") {
-
             numOfItems1.value = checkNum( parseInt(numOfItems1.value) + 1);
             subTotal1.innerText = "￥" + (numOfItems1.value * 21.90).toFixed(2);
             calcSumTotal();
