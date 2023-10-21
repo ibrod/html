@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Example</title>
+    <style>
+        div{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="parent">
+    <div style="width: 50%">
+    <button class="child">Click me</button>
+    </div>
+</div>
+<script>
+    document.getElementById('parent').addEventListener('click', (e)=> {
+        console.log('e.target (The element that was clicked):', e.target);
+        console.log('this (The element with the event listener):', e.currentTarget);
+    });
+</script>
+</body>
+</html>
