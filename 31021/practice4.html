@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div style="width: 5000px; height: 4000px; background-image: linear-gradient(to bottom right, #0066ff, #17801c, #ffea00); position: relative;">
+    <div id="ad1" style="width: 200px; height: 200px; background-color: red; position: fixed; left: 200px; top: 200px; color: white; text-align: center; line-height: 200px;">这是一个广告</div>
+    <div id="ad2" style="width: 250px; height: 250px; background-color: #dd00ff; position: absolute; top: 450px; left: 500px; text-align: center; line-height: 250px; color: white">这是另一个广告</div>
+</div>
+
+<script>
+    const ad2 = document.getElementById('ad2');
+    const originalTop = 450;
+    const originalLeft = 500;
+
+    function updateAdPosition() {
+        // alert('updateAdPosition');
+        const scrollTop =  document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+        // alert(scrollTop+ ' ' + scrollLeft);
+        ad2.style.top = (originalTop + scrollTop) + 'px';
+        ad2.style.left = (originalLeft + scrollLeft) + 'px';
+    }
+
+    window.addEventListener('scroll', updateAdPosition);
+    updateAdPosition(); // 更新初始位置
+</script>
+</body>
+</html>

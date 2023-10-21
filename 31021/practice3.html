@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .green-box {
+            display: inline-block;
+            background-color: green;
+            border-radius: 5px;
+            padding: 10px 50px;
+            color: white;
+        }
+
+        .green-box:hover {
+            background-color: darkgreen;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li > div {
+            display: grid;
+            grid-template-columns: 100px 200px 1fr;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 10px;
+
+        }
+
+        li > div > div {
+            color: #9b9b9b;
+        }
+
+        .card {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            padding-bottom: 30px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            transform: translate(-50%, -50%);
+        }
+
+
+        .card > form {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <div id="pushPost" class="green-box">我要发帖</div>
+    <div>
+        <ul id="ulPost">
+            <li>
+                <hr>
+                <div>
+                    <img src="./resource/book.png" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                         height="60">
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">如何学习Java web</div>
+                    <div>板块：新课来了</div>
+                    <div>
+                        <span>发表时间:</span>
+                        <span>2021-03-01 12:00:00</span>
+                    </div>
+                </div>
+                <hr>
+            </li>
+            <li>
+                <hr>
+                <div>
+                    <img src="./resource/book2.png" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                         height="60">
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">如何学习课工场课程?</div>
+                    <div>板块：新手报道</div>
+                    <div>
+                        <span>发表时间:</span>
+                        <span>2020-06-12 13:00:00</span>
+                    </div>
+                </div>
+                <hr>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <form action="" id="postForm">
+            <div>
+                <input type="text" id="textTitle" placeholder="请输入文章标题"
+                       style="margin:30px 30px;height: 30px;width: 300px;line-height: 30px;">
+            </div>
+            <div>
+                <label for="sepChoice">请选择板块</label>
+                <select name="sepChoice" id="sepChoice">
+                    <option value="新课来了">新课来了</option>
+                    <option value="新手报到">新手报到</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="postTextarea" id="postTextarea" cols="30" rows="10" placeholder="文章内容" style="margin-top:30px;"></textarea>
+            </div>
+            <input type="submit" value="发表" class="green-box" style="width: 50%; margin: 10px auto">
+            <div id="back" class="green-box" style="background-color: orange;width: 30%; margin: 10px auto;">返回</div>
+        </form>
+    </div>
+
+</main>
+</body>
+
+<script>
+    const pushPost = document.getElementById('pushPost');
+    pushPost.addEventListener('click', function () {
+        document.getElementsByClassName('card')[0].style.display = 'block';
+    });
+
+    const back = document.getElementById('back');
+    back.addEventListener('click', function () {
+        document.getElementsByClassName('card')[0].style.display = 'none';
+    });
+
+    const postForm = document.getElementById('postForm');
+    postForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let title = document.getElementById('textTitle');
+        let sepChoice = document.getElementById('sepChoice');
+        let dateTime = new Date();
+        let year = dateTime.getFullYear();
+        let month = dateTime.getMonth() + 1;
+        if (month < 10) {
+            month = '0' + month;
+        }
+        let day = dateTime.getDate();
+        if (day < 10) {
+            day = '0' + day;
+        }
+        let hour = dateTime.getHours();
+        if (hour < 10) {
+            hour = '0' + hour;
+        }
+        let minute = dateTime.getMinutes();
+        if (minute < 10) {
+            minute = '0' + minute;
+        }
+        let second = dateTime.getSeconds();
+        if (second < 10) {
+            second = '0' + second;
+        }
+        let timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+
+        if (title.value !== '') {
+            const ulPost = document.getElementById('ulPost');
+            const li = document.createElement('li');
+            li.innerHTML = `
+                 <hr>
+                <div>
+                    <img src="./resource/summer.webp" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                         height="60">
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #333333">${title.value}</div>
+                    <div>板块:${sepChoice.value}</div>
+                    <div>
+                        <span>发表时间:</span>
+                        <span>${timeStr}</span>
+                    </div>
+                </div>
+                <hr>
+            `;
+            ulPost.insertBefore(li, ulPost.firstElementChild);
+            title.value = '';
+            sepChoice.value = '新课来了';
+            document.getElementById('postTextarea').value = '';
+            document.getElementsByClassName('card')[0].style.display = 'none';
+        } else {
+            alert('请输入标题');
+        }
+    });
+
+</script>
+
+</html>
