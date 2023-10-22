@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 50px 400px 50px;
+            grid-template-areas:'h h h h h h h h h h h h'
+                                'm m m c c c c c c c c c'
+                                'f f f f f f f f f f f f';
+        }
+
+        .header {
+            grid-area: h;
+        }
+
+        .menu {
+            grid-area: m;
+        }
+
+        .content {
+            grid-area: c;
+        }
+
+        .footer {
+            grid-area: f;
+        }
+
+        *{
+            border: 1px solid #3a008d;
+        }
+
+        @media(max-width: 768px){
+            .container{
+                grid-template-areas:'h h h h h h m m m m m m'
+                                    'c c c c c c c c c c c c'
+                                    'f f f f f f f f f f f f'
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">头部</div>
+    <div class="menu">菜单栏</div>
+    <div class="content">内容展示</div>
+    <div class="footer">底部</div>
+</div>
+
+</body>
+</html>
