@@ -13,11 +13,24 @@
         }
 
         * {
-            border: 1px solid red;
+            /*border: 1px solid blue;*/
         }
 
-        .right-content{
+        .right-content {
             float: left;
+        }
+
+        .price {
+            color: red;
+            font-size: 30px;
+        }
+
+        .red-background {
+            background-color: red;
+            color: white;
+            margin: 3px;
+            padding: 1px;
+            /*text-decoration: line-through;*/
         }
 
     </style>
@@ -29,7 +42,10 @@
         <h1>岛上书店【荐书联盟推荐】［The Storied Life of A.J.Fikry]</h1>
         <p>自营图书几十万畅销品种阶梯满减，抽奖最魅蓝note3、JDRead阅读語！</p>
         <p>[美］加•泽文（Gabrielle Zevin ）著；孙仲旭，李玉瑶译</p>
-        <p>京东价：<strong>¥24.10</strong> (6.9折）<del> 定价：￥35.001</del>（降价通知</p>
+        <p>京东价：<strong>¥24.10</strong> (6.9折）
+            <span>定价：<del>￥35.001</del></span>
+            （降价通知）
+        </p>
         <p>促销信息：手机专享价 ¥9.90</p>
         <p>以下促销可在购物车任选具一</p>
         <p><span>加价购</span>
@@ -44,6 +60,22 @@
 </div>
 </body>
 <script>
+    $(function (x) {
+        $('strong').addClass('price');
+        $('span').eq(0).css('color', '#c7c7c7');
+        // alert($('.right-content>p:nth-of-type(3)').html()+'\n'+$('.right-content>p:eq(2)').html()+'\n'+$('.right-content>p').eq(2).html());
+        //三种方式都可以获取到第三个p标签的内容，但是eq()方法是jQuery独有的，其他两种方法是jQuery和原生js都可以使用的，所以推荐使用nth-of-type()和eq()方法
 
+        $('.right-content>p:nth-of-type(1)').css('color', 'orangered');
+        // $('.right-content>p:eq(1)').css('color', 'red');
+        // $('.right-content>p').eq(1).css('color', 'red');
+        // $('.right-content>*:nth-child(2)').css('color', 'red');
+
+        $('.right-content>p:gt(3):lt(3)').css({'color': 'orangered', 'margin-left': '5em'});
+        // $('.right-content>p').slice(4, 6).css('color', 'red');
+
+        $('.right-content span').slice(1).addClass('red-background');
+
+    });
 </script>
 </html>
