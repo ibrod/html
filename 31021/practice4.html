@@ -8,8 +8,8 @@
 </head>
 <body>
 <div style="width: 5000px; height: 4000px; background-image: linear-gradient(to bottom right, #0066ff, #17801c, #ffea00); position: relative;">
-    <div id="ad1" style="width: 200px; height: 200px; background-color: red; position: fixed; left: 200px; top: 200px; color: white; text-align: center; line-height: 200px;">这是一个广告</div>
-    <div id="ad2" style="width: 250px; height: 250px; background-color: #dd00ff; position: absolute; top: 450px; left: 500px; text-align: center; line-height: 250px; color: white">这是另一个广告</div>
+    <div id="ad1" style="width: 200px; height: 200px; background-color: red; position: fixed; left: 200px; top: 200px; color: white; text-align: center; line-height: 50px;"><p>这是一个广告</p><button id="closeAd1">关闭</button></div>
+    <div id="ad2" style="width: 250px; height: 250px; background-color: #dd00ff; position: absolute; top: 450px; left: 500px; text-align: center; line-height: 50px; color: white"><p>这是另一个广告</p><button id="closeAd2">关闭</button></div>
 </div>
 
 <script>
@@ -28,6 +28,17 @@
 
     window.addEventListener('scroll', updateAdPosition);
     updateAdPosition(); // 更新初始位置
+
+    const closeAd1 = document.getElementById('closeAd1');
+    closeAd1.addEventListener('click', function (e) {
+        e.currentTarget.parentNode.style.display = 'none';
+    });
+
+    const closeAd2 = document.getElementById('closeAd2');
+    closeAd2.addEventListener('click', function (e) {
+        ad2.style.display = 'none';
+    });
+
 </script>
 </body>
 </html>

@@ -181,9 +181,12 @@
     }
 
     const deleteItem = function (num) {
-        let name="cart-card"+num;
-        document.getElementById(name).remove();
-        calcSumTotal();
+        let confirmDelete=confirm("确定要删除吗？");
+        if(confirmDelete) {
+            let name = "cart-card" + num;
+            document.getElementById(name).remove();
+            calcSumTotal();
+        }
     }
 
     const checkNum = function (num) {
@@ -232,7 +235,6 @@
 
     card1.addEventListener("click", (e) => {
         if (e.target.className === "op-button-plus") {
-
             numOfItems1.value = checkNum( parseInt(numOfItems1.value) + 1);
             subTotal1.innerText = "￥" + (numOfItems1.value * 21.90).toFixed(2);
             calcSumTotal();

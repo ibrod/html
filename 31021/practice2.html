@@ -181,9 +181,12 @@
     }
 
     const deleteItem = function (num) {
-        let name="cart-card"+num;
-        document.getElementById(name).remove();
-        calcSumTotal();
+        let confirmDelete=confirm("确定要删除吗？");
+        if(confirmDelete) {
+            let name = "cart-card" + num;
+            document.getElementById(name).remove();
+            calcSumTotal();
+        }
     }
 
     const checkNum = function (num) {

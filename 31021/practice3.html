@@ -157,6 +157,7 @@
     postForm.addEventListener('submit', function (e) {
         e.preventDefault();
         let title = document.getElementById('textTitle');
+        title.value = title.value.trim();
         let sepChoice = document.getElementById('sepChoice');
         let dateTime = new Date();
         let year = dateTime.getFullYear();
