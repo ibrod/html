@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+</head>
+<body>
+<div style="width: 5000px; height: 4000px; background-image: linear-gradient(to bottom right, #0066ff, #17801c, #ffea00); position: relative;">
+    <div id="ad1"
+         style="width: 200px; height: 200px; background-color: red; position: fixed; left: 200px; top: 200px; color: white; text-align: center; line-height: 50px;">
+        <p>这是一个广告</p>
+        <button id="closeAd1">关闭</button>
+    </div>
+    <div id="ad2"
+         style="width: 250px; height: 250px; background-color: #dd00ff; position: absolute; top: 450px; left: 500px; text-align: center; line-height: 50px; color: white">
+        <p>这是另一个广告</p>
+        <button id="closeAd2">关闭</button>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        const $ad2 = $('#ad2');
+        const originalTop = 450;
+        const originalLeft = 500;
+        const updateAdPosition = function () {
+            const scrollTop = $(window).scrollTop();
+            const scrollLeft = $(window).scrollLeft();
+            $ad2.css({
+                'top': (originalTop + scrollTop) + 'px',
+                'left': (originalLeft + scrollLeft) + 'px'
+            });
+        }
+
+        $(window).scroll(updateAdPosition);
+        updateAdPosition();
+
+        $('#closeAd1').on('click',(e)=>{
+          $(e.currentTarget).parent().css("display","none");
+        });
+
+        $('#closeAd2').click(function (e){
+            $ad2.hide();
+        });
+
+    });
+</script>
+</body>
+</html>
