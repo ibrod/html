@@ -61,11 +61,11 @@
         }
 
         body {
-            background: rgb(231,238,174);
-            background: radial-gradient(circle, rgba(231,238,174,1) 0%, rgba(148,215,233,1) 100%);
+            background: rgb(231, 238, 174);
+            background: radial-gradient(circle, rgba(231, 238, 174, 1) 0%, rgba(148, 215, 233, 1) 100%);
         }
 
-        input,textarea,select,option{
+        input, textarea, select, option {
             outline: none;
             opacity: 0.6;
         }
@@ -142,6 +142,15 @@
 <script>
     const pushPost = document.getElementById('pushPost');
     const card = document.querySelector('.card');
+
+    const escapeHTML = function (str) {
+        return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
     pushPost.addEventListener('click', function () {
         card.style.display = 'block';
         card.style.left = '50%';
@@ -183,27 +192,28 @@
         }
         let timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
-        if (title.value===null||title.value === ''){
+        if (title.value === null || title.value === '') {
             alert('请输入标题');
-        }else if(sepChoice.value===null||sepChoice.value === '0') {
+        } else if (sepChoice.value === null || sepChoice.value === '0') {
             alert('请选择板块');
         } else {
             const ulPost = document.getElementById('ulPost');
             const li = document.createElement('li');
             li.innerHTML = `
-                 <hr>
-                <div>
-                    <img src="./resource/summer.webp" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
-                         height="60">
-                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">${title.value}</div>
-                    <div>板块：${sepChoice.value}</div>
-                    <div>
-                        <span>发表时间:</span>
-                        <span>${timeStr}</span>
-                    </div>
-                </div>
-                <hr>
-            `;
+                                <hr>
+                                <div>
+                                    <img src="./resource/summer.webp" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                                         height="60">
+                                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">${escapeHTML(title.value)}</div>
+                                    <div>板块：${escapeHTML(sepChoice.value)}</div>
+                                    <div>
+                                        <span>发表时间:</span>
+                                        <span>${escapeHTML(timeStr)}</span>
+                                    </div>
+                                </div>
+                                <hr>
+                            `;
+
             ulPost.insertBefore(li, ulPost.firstElementChild);
             title.value = '';
             sepChoice.value = '0';
@@ -283,7 +293,6 @@
     //     document.addEventListener('mousemove', mouseMoveHandler);
     //     document.addEventListener('mouseup', mouseUpHandler);
     // });
-
 
 
 </script>
