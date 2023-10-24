@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 40% 10% 20% 30%;
+        //grid-template-rows: 10px 10px 10px 10px; text-align: center;
+        }
+
+        .container > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .head-content {
+            display: grid;
+            grid-template-columns: 40% 10% 20% 30%;
+            background-color: blue;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="head-content">
+        <div>商品</div>
+        <div>单价</div>
+        <div>数量</div>
+        <div>操作</div>
+    </div>
+    <div class="container">
+        <div><img src="./resource/img.png" alt="" height="50"><a href="">丹墓妮诵勒波点印花手衣</a></div>
+        <div>180.0</div>
+        <div>3</div>
+        <div><a href="javascript:void(0)">删除</a></div>
+    </div>
+
+    <div class="container">
+        <div><img src="./resource/img.png" alt="" height="50"><a href="">预售太平洋女装连衣裙</a></div>
+        <div>765.0</div>
+        <div>4</div>
+        <div><a href="javascript:void(0)">删除</a></div>
+    </div>
+
+    <div class="container">
+        <div><img src="./resource/img.png" alt="" height="50"><a href="">丹慕妮通勒红色小外套</a></div>
+        <div>456.0</div>
+        <div>2</div>
+        <div><a href="javascript:void(0)">删除</a></div>
+    </div>
+
+    <div class="container">
+        <div><img src="./resource/img.png" alt="" height="50"><a href="">漫巴森秋装新款套头衫</a></div>
+        <div>140.0</div>
+        <div>1</div>
+        <div><a href="javascript:void(0)">删除</a></div>
+    </div>
+</main>
+</body>
+<script>
+    $(function () {
+        const changeColor=function () {
+            $('main>div[class="container"]:even').css('background-color', '#eff7d1');
+            $('main>div[class="container"]:odd').css('background-color', '#f7e195');
+        }
+        changeColor();
+        $('a:contains("删除")').click(
+            function () {
+                $(this).parent().parent().remove();
+                changeColor();
+            }
+        );
+    })
+</script>
+</html>

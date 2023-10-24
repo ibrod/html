@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        * {
+            border: 1px dashed blue;
+        }
+
+        .right-content {
+            display: inline-block;
+            float: left;
+            width: 80%;
+        }
+
+        .star {
+            clear: both;
+            display: block;
+            padding: 5px 10px;
+            margin-left: 30px;
+            font-size: 20px;
+        }
+
+        .star:hover {
+            background-color: #F00;
+            color: #FFF;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<img src="./resource/img.png" alt="" style="float: left" height="200">
+<div class="right-content">
+    <h1>非缘勿扰</h1>
+
+    <dl>
+        <dd>
+            <span id="mainActor">主演</span>：苏有朋/秦岗/博艺伟等
+        </dd>
+        <dd>
+            <span id="director">导演</span>：<span>赖水清</span>
+        </dd>
+        <dd>
+            <span id="tag">标签</span>：<span>苏有朋</span>国产电视剧<span>2013</span> 连续剧
+        </dd>
+        <dd>
+            <span id="story">剧情</span>：当代都市，大年女刘林、杨阳都在寻找自己的如意郎君，
+            刘林偶遇陆氏房地产总裁路西诺，两人成了欢喜冤家，遭到暗恋
+            西诺的丁娟的嫉恨。•。<a href="">点击了解更多</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <button class="star">❤️收藏</button>
+</div>
+</body>
+<script>
+    $(function () {
+        $('.star').click(function () {
+            alert('收藏成功');
+        })
+        $('h1').click(function () {
+                $('dd span[id]').css({"color": "#FF0099", "font-weight": "bold"})
+            }
+        )
+        $(`*:contains('导演')`).filter(function () {
+            return this.innerHTML === '导演';
+        }).click(function () {
+                $('*:contains("赖水清")').filter(function () {
+                    return this.innerHTML === '赖水清';
+                }).css({"font-weight": "bolder"});
+            }
+        );
+
+        let $tag=$(`*:contains('标签')`).filter(function () {
+            return this.innerHTML === '标签';
+        });
+
+        $tag.click(function (e){
+            // alert(e.currentTarget);
+            $('*:contains("苏有朋")').filter(function (index,e2) {
+                // alert(e2.innerHTML+' '+$(e.currentTarget).nextAll().html());
+                return this.innerHTML === '苏有朋' && $(e2).is(($(e.currentTarget).nextAll()));
+            }).css({"background-color": "#E0F8EA", "color": "#A14B","padding":"2px 8px"});
+        });
+
+        $tag.click(function (e){
+            $('*:contains("2013")').filter(function (index,e2) {
+                return this.innerHTML === '2013' && $(e2).is(($(e.currentTarget).nextAll()));
+            }).css({"background-color": "#E0F8EA", "color": "#A14B","padding":"2px 8px"});
+        });
+
+    })
+</script>
+</html>

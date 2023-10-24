@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        main {
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        //align-items: center; align-content: center;
+            margin-left: 30px;
+            width: 500px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .addList{
+            position: absolute;
+            right: 150px;
+            display: none;
+            background-color: orange;
+            color: white;
+            padding: 3px 10px;
+        }
+
+        .addList:hover{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<h1>全网热播视频</h1>
+<main>
+    <img src="./resource/img.png" alt="" width="350">
+    <img src="./resource/img.png" alt="" width="350">
+    <div class="container">
+        <p><span>1</span>三八经<span class="addList">加入清单</span></p>
+        <p><span>2</span>吉祥天宝<span class="addList">加入清单</span></p>
+        <p><span>3</span>亲爱的翻译官<span class="addList">加入清单</span></p>
+        <p><span>4</span>仙剑云之凡<span class="addList">加入清单</span></p>
+        <p><span>5</span>权利的游戏第五季<span class="addList">加入清单</span></p>
+        <p><span>6</span>琅琊榜<span class="addList">加入清单</span></p>
+        <p><span>7</span>那年青春我们正好<span class="addList">加入清单</span></p>
+        <p><span>8</span>乡村爱情8(上)<span class="addList">加入清单</span></p>
+        <p><span>9</span>乡村爱情8(上)<span class="addList">加入清单</span></p>
+        <p><span>10</span>乡村爱情8(上)<span class="addList">加入清单</span></p>
+    </div>
+</main>
+</body>
+<script>
+    $(function () {
+        $('main>*:not(div)').css('margin-right', '10px');
+        $('main>*:last').css('background-color', '#f0f0f0');
+
+
+        $('.container>p>span:not([class]):lt(3)').css({'background-color':'#0a30f0','color':'#a4a3a3',"padding":"3px","margin":"3px"});
+        $('.container>p>span:not([class]):gt(2)').css({'background-color':'grey','color':'white',"padding":"3px","margin":"3px"});
+
+        const arrowUp=[2,4,5,6];
+        const arrowDown=[3,7,8,9];
+
+        const $containerP=$('.container>p');
+
+        $containerP.filter(function (index,element) {
+            return arrowUp.includes(index);
+        }).append(`<span style="color: red;float: right;margin-right: 30px;">↑</span>`);
+
+        $containerP.filter(function (index,element) {
+            return arrowDown.includes(index);
+        }).append(`<span style="color: green;float: right;margin-right: 30px;">↓</span>`);
+
+        $containerP.mouseover(
+            function (e){
+                $(e.currentTarget).children(`span[class="addList"]`).show();
+            }
+        );
+
+        $containerP.mouseout(
+            function (e){
+                $(e.currentTarget).children(`span[class="addList"]`).hide();
+            }
+        );
+
+        $('.addList').click(
+            function (e){
+                e.stopPropagation();
+                alert('已加入清单');
+            }
+        );
+
+
+
+    })
+</script>
+</html>
