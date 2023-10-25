@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        h1 {
+            position: relative;
+            left: 0;
+            top: 0;
+            height: 500px;
+            border: 1px dashed blue;
+        }
+    </style>
+</head>
+<body>
+<h1>这是一行文字</h1>
+</body>
+<script>
+
+    function animateH1() {
+        $("h1").animate({left: "+=50", height: "toggle", opacity: "toggle"}, 2000)
+            .animate({left: "-=50", height: "toggle", opacity: "toggle"}, 2000, animateH1);
+    }
+    animateH1();
+
+
+    // $("h1").animate({
+    //     // opacity: 0.25,
+    //     left: "+=50",
+    //     height: "toggle",
+    //     opacity: "toggle"
+    // }, 2000, function () {
+    //     // alert("已消失！")
+    //     //重新调用动画
+    //     $("h1").animate({
+    //         // opacity: 0.25,
+    //         left: "-=50",
+    //         height: "toggle",
+    //         opacity: "toggle"
+    //     }, 2000, function () {
+    //         // alert("已出现！")
+    //     });
+    // });
+</script>
+</html>

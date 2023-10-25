@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 800px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .container > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            padding: 5px;
+        }
+
+        .girdDetail {
+            display: grid;
+            grid-template-columns: 30% 20% 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-column-gap: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .price {
+            color: red;
+            font-size: 30px;
+            grid-column: 1/2;
+            grid-row: 1/3;
+        }
+
+        .discount {
+            grid-column: 2/3;
+            grid-row: 1/2;
+            background-color: orange;
+            color: red;
+        }
+
+        .originPrice {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            text-decoration: line-through;
+        }
+
+        .right-consumer {
+            grid-column: -1;
+            grid-row: -1/-2;
+            font-size: 11px;
+        }
+
+        * {
+        //border: 1px dashed blue
+        }
+
+        .red-background{
+            background-color: red;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <img src="../oneshop/resource/images/per_1.jpg" alt="">
+        <div>114514颗珍珠</div>
+        <div class="girdDetail">
+            <div class="price">￥18</div>
+            <div class="discount">1.7折</div>
+            <div class="originPrice">￥185</div>
+            <div class="right-consumer">
+                <span style="color:green;">4473</span>
+                <span>人已购买</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <img src="../oneshop/resource/images/per_2.jpg" alt="">
+        <div>1234324324234的项链</div>
+        <div class="girdDetail">
+            <div class="price">￥18</div>
+            <div class="discount">1.7折</div>
+            <div class="originPrice">￥185</div>
+            <div class="right-consumer">
+                <span style="color:green;">4473</span>
+                <span>人已购买</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <img src="../oneshop/resource/images/per_3.jpg" alt="">
+        <div>很好看的吊坠</div>
+        <div class="girdDetail">
+            <div class="price">￥18</div>
+            <div class="discount">1.7折</div>
+            <div class="originPrice">￥185</div>
+            <div class="right-consumer">
+                <span style="color:green;">4473</span>
+                <span>人已购买</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(
+      function (){
+          $('.container>div').mouseover(
+              function (){
+                    $(this).addClass('red-background');
+              }
+          ).mouseout(
+                function (){
+                    $(this).removeClass('red-background');
+                }
+          );
+      }
+    );
+    
+</script>
+</html>
