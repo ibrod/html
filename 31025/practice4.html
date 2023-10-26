@@ -93,7 +93,7 @@
         <form action="">
             <h2 style="margin: 0">这条帮助是否解决了您的问题？</h2>
             <div>
-                <input type="radio" name="hasSolved" id="solved" value="true">
+                <input type="radio" name="hasSolved" id="solved" value="true" checked>
                 <label for="solved">已解决</label>
                 <input type="radio" name="hasSolved" id="unsolved" value="false">
                 <label for="unsolved">未解决</label>
@@ -124,12 +124,14 @@
             $(this).children('div').animate({opacity: 'toggle'}, 500);
         })
         // let tempBackgroundColor = '';
-        $('nav div').hover(function () {
+        $('nav div,nav p').hover(function () {
             // tempBackgroundColor = $(this).css('background-color');
             $(this).css('border', '1px dashed blue');
             $(this).parents().css('border', '1px dashed blue');
         }, function () {
             $(this).css('border', 'none');
+            $(this).parents().css('border', 'none');
+            $('nav').css('border', '1px solid #9b9b9b');
         })
         $('#unsolved').click(function () {
             $('#unsolvedMethod').animate({opacity: 1, height: "show"}, 500);
