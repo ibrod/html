@@ -198,10 +198,11 @@
                         "温柔的月光",
                         "闲云野鹤"
                     ];
+                    const $chatContent=$('.chatContent');
                     if ($txt.text().trim() === '') {
                         alert('发送内容不能为空');
                     } else {
-                        $('.chatContent').append(`
+                        $chatContent.append(`
                             <div class="chatMessage">
                                 <img src="../oneshop/resource/images/per_${randomNum}.jpg" alt="" width="50px" height="50px">
                                 <div>
@@ -211,6 +212,7 @@
                             </div>
                         `);
                         $txt.empty();
+                        $chatContent.scrollTop($chatContent[0].scrollHeight);
                     }
                 }
             )
