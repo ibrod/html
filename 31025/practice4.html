@@ -42,6 +42,19 @@
             line-height: 20px;
             text-indent: 2em;
         }
+
+        .pink-background{
+            background-color: pink;
+        }
+
+        .purple-background{
+            background-color: purple;
+        }
+
+        .cyan-background{
+            background-color: cyan;
+        }
+
     </style>
 </head>
 <body>
@@ -123,15 +136,14 @@
             $nav.children('div').hide();
             $(this).children('div').animate({opacity: 'toggle'}, 500);
         })
-        // let tempBackgroundColor = '';
-        $('nav div,nav p').hover(function () {
-            // tempBackgroundColor = $(this).css('background-color');
-            $(this).css('border', '1px dashed blue');
-            $(this).parents().css('border', '1px dashed blue');
-        }, function () {
-            $(this).css('border', 'none');
-            $(this).parents().css('border', 'none');
-            $('nav').css('border', '1px solid #9b9b9b');
+        $('nav p').hover(function (e) {
+            $(this).addClass('purple-background');
+            $(this).siblings().addClass('cyan-background');
+            $(this).parent().parent().addClass('pink-background');
+        }, function (e) {
+            $(this).removeClass('purple-background');
+            $(this).siblings().removeClass('cyan-background');
+            $(this).parent().parent().removeClass('pink-background');
         })
         $('#unsolved').click(function () {
             $('#unsolvedMethod').animate({opacity: 1, height: "show"}, 500);
