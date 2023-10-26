@@ -231,7 +231,7 @@
                     if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
                         e.preventDefault();
                         $('#send').click();
-                    } else if (e.ctrlKey && e.keyCode === 67) {
+                    } else if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
                         $('#cancel').click();
                     }
                 }

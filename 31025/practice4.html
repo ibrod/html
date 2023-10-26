@@ -145,6 +145,13 @@
             $(this).siblings().removeClass('cyan-background');
             $(this).parent().parent().removeClass('pink-background');
         })
+
+        $('nav div').hover(function (e) {
+            $(this).addClass('pink-background');
+        }, function (e) {
+            $(this).removeClass('pink-background');
+        });
+
         $('#unsolved').click(function () {
             $('#unsolvedMethod').animate({opacity: 1, height: "show"}, 500);
         })
