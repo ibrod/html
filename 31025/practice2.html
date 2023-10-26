@@ -14,8 +14,8 @@
         }
 
         .chatContent {
-            word-break:break-all;
             overflow: auto;
+            /*overflow-wrap: break-word;*/
             height: 350px;
             border: 1px solid #9b9b9b;
             padding: 5px;
@@ -25,44 +25,46 @@
             display: flex;
             margin-bottom: 30px;
         }
-        .chatMessage>div{
+
+        .chatMessage > div {
             margin-left: 5px;
         }
 
-        .userName{
+        .userName {
             color: blue;
         }
 
-        .message{
+        .message {
             background-color: #d7d7d7;
             padding: 5px 10px;
             border-radius: 10px;
         }
 
-        .sendMessage{
+        .sendMessage {
             height: 130px;
             border: 1px solid #9b9b9b;
             padding: 5px;
         }
 
-        .sendMessageContent{
-            word-break:break-all;
+        .sendMessageContent {
+            /*overflow-wrap: break-word;*/
             overflow: auto;
             height: 100px;
         }
-        .sendMessageContent:focus{
+
+        .sendMessageContent:focus {
             /*outline: 1px solid #d9d9d9;*/
             outline: none;
         }
 
-        .chatBar{
+        .chatBar {
             height: 20px;
             border: 1px solid #9b9b9b;
             padding: 5px;
             background-color: #E7EEF9;
         }
 
-        .opButton{
+        .opButton {
             background-color: #069DD5;
             color: white;
             cursor: pointer;
@@ -96,42 +98,48 @@
 <main class="container">
     <div class="chatContent">
         <div class="chatMessage">
-            <img src="../oneshop/resource/images/per_3.jpg" alt="" width="50px" height="50px">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
             <div>
                 <span class="userName">时尚伊人</span>
-                <div class="message">你好，我是时尚伊人，很高兴为您服!</div>
+                <div class="message">你好，我是时尚伊人，很高兴为您服务!</div>
             </div>
         </div>
 
         <div class="chatMessage">
-            <img src="../oneshop/resource/images/per_3.jpg" alt="" width="50px" height="50px">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
             <div>
                 <span class="userName">时尚伊人</span>
-                <div class="message">你好，我是时尚伊人，很高兴为您服!</div>
+                <div class="message">你好，我是时尚伊人，很高兴为您服务!</div>
             </div>
         </div>
 
         <div class="chatMessage">
-            <img src="../oneshop/resource/images/per_3.jpg" alt="" width="50px" height="50px">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
             <div>
                 <span class="userName">时尚伊人</span>
-                <div class="message">你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!</div>
+                <div class="message">
+                    你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!
+                </div>
             </div>
         </div>
 
         <div class="chatMessage">
-            <img src="../oneshop/resource/images/per_3.jpg" alt="" width="50px" height="50px">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
             <div>
                 <span class="userName">时尚伊人</span>
-                <div class="message">你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!</div>
+                <div class="message">
+                    你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!
+                </div>
             </div>
         </div>
 
         <div class="chatMessage">
-            <img src="../oneshop/resource/images/per_3.jpg" alt="" width="50px" height="50px">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
             <div>
                 <span class="userName">时尚伊人</span>
-                <div class="message">你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!你好，我是时尚伊人，很高兴为您服!</div>
+                <div class="message">
+                    你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!
+                </div>
             </div>
         </div>
     </div>
@@ -163,19 +171,41 @@
     //         .replace(/'/g, '&#039;');
     // }
 
+
     $(
         function () {
             $('#send').click(
                 function () {
                     let $txt = $('#sendTxtCont');
+                    let randomNum = Math.floor(Math.random() * 18) + 2;
+                    let names = [
+                        "流星雨下的夜",
+                        "蓝天白云梦",
+                        "小熊猫的快乐",
+                        "雨后彩虹桥",
+                        "风中的承诺",
+                        "快乐的小蜜蜂",
+                        "梦里花开花落",
+                        "星空下的诺言",
+                        "忧伤的小丸子",
+                        "夜空中最亮的星",
+                        "飘逸的风筝",
+                        "落花流水情",
+                        "无忧无虑的日子",
+                        "简单爱生活",
+                        "幸福的小鱼",
+                        "傻笑不停的猫",
+                        "温柔的月光",
+                        "闲云野鹤"
+                    ];
                     if ($txt.html().trim() === '') {
                         alert('发送内容不能为空');
                     } else {
                         $('.chatContent').append(`
                             <div class="chatMessage">
-                                <img src="../oneshop/resource/images/per_6.jpg" alt="" width="50px" height="50px">
+                                <img src="../oneshop/resource/images/per_${randomNum}.jpg" alt="" width="50px" height="50px">
                                 <div>
-                                    <span class="userName">用户</span>
+                                    <span class="userName">${names[randomNum - 2]}</span>
                                     <div class="message">${$txt.html()}</div>
                                 </div>
                             </div>
@@ -198,10 +228,10 @@
                     //     e.preventDefault();
                     //     // alert('Ctrl+S has been disabled');
                     // }
-                    if((e.ctrlKey || e.metaKey) && e.keyCode===83){
+                    if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
                         e.preventDefault();
                         $('#send').click();
-                    }else if(e.ctrlKey && e.keyCode===67){
+                    } else if (e.ctrlKey && e.keyCode === 67) {
                         $('#cancel').click();
                     }
                 }

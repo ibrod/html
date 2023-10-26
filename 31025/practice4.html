@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        main {
+            display: flex;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+            flex-grow: 0;
+            width: 200px;
+            border: 1px solid #9b9b9b;
+            align-self: flex-start;
+        }
+
+        nav > div {
+            padding: 5px;
+            text-indent: 1em;
+        }
+
+        nav div:hover {
+            cursor: pointer;
+        }
+
+        nav > div > hr {
+            margin: 0;
+        }
+
+        nav > div[id] > div {
+            display: none;
+            color: grey;
+            line-height: 20px;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <nav>
+        <div style="background-color: orangered;color: white;text-align: center;text-indent: 0;">·帮助导航·</div>
+        <div id="account">
+            <span>账号管理</span>
+            <hr>
+            <div>
+                <p>账号管理1</p>
+                <p>账号管理2</p>
+                <p>账号管理3</p>
+                <p>账号管理4</p>
+            </div>
+        </div>
+        <div id="shoppingDir">
+            <span>购物指南</span>
+            <hr>
+            <div>
+                <p>购物指南1</p>
+                <p>购物指南2</p>
+                <p>购物指南3</p>
+                <p>购物指南4</p>
+            </div>
+        </div>
+        <div id="distributionWay">
+            <span>配送方式</span>
+            <hr>
+            <div>
+                <p>配送方式1</p>
+                <p>配送方式2</p>
+                <p>配送方式3</p>
+                <p>配送方式4</p>
+            </div>
+        </div>
+        <div id="payment">
+            <span>支付方式</span>
+            <hr>
+            <div>
+                <p>支付方式1</p>
+                <p>支付方式2</p>
+                <p>支付方式3</p>
+                <p>支付方式4</p>
+            </div>
+        </div>
+    </nav>
+    <article style="text-align: center">
+        <form action="">
+            <h2 style="margin: 0">这条帮助是否解决了您的问题？</h2>
+            <div>
+                <input type="radio" name="hasSolved" id="solved" value="true">
+                <label for="solved">已解决</label>
+                <input type="radio" name="hasSolved" id="unsolved" value="false">
+                <label for="unsolved">未解决</label>
+            </div>
+            <div id="unsolvedMethod">
+                <div>问题没解决？请选择原因:</div>
+                <div>
+                    <select name="reason" id="reason">
+                        <option value="1">原因1</option>
+                        <option value="2">原因2</option>
+                        <option value="3">原因3</option>
+                        <option value="4">原因4</option>
+                    </select>
+                </div>
+                <textarea name="comment" id="comment" cols="20" rows="5"></textarea>
+            </div>
+            <input type="submit" value="提交"
+                   style="background-color: orangered;color: white;padding: 5px 30px;margin-top: 5px">
+        </form>
+    </article>
+</main>
+</body>
+<script>
+    $(function () {
+        let $nav = $('nav > div');
+        $nav.click(function () {
+            $nav.children('div').hide();
+            $(this).children('div').animate({opacity: 'toggle'}, 500);
+        })
+        // let tempBackgroundColor = '';
+        $('nav div').hover(function () {
+            // tempBackgroundColor = $(this).css('background-color');
+            $(this).css('border', '1px dashed blue');
+            $(this).parents().css('border', '1px dashed blue');
+        }, function () {
+            $(this).css('border', 'none');
+        })
+        $('#unsolved').click(function () {
+            $('#unsolvedMethod').animate({opacity: 1, height: "show"}, 500);
+        })
+        $('#solved').click(function () {
+            $('#unsolvedMethod').animate({opacity: 0, height: "hide"}, 500);
+        })
+        const $comment = $('#comment');
+        const describe = function () {
+            $comment.val('请描述您的具体情况');
+            $comment.css('color', 'grey');
+        }
+        describe();
+        $comment.blur(describe);
+        $comment.focus(
+            function () {
+                $(this).val('');
+                $(this).css('color', 'black');
+            }
+        );
+        $('#unsolvedMethod').hide();
+    })
+</script>
+</html>

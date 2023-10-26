@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        .green-box {
+            display: inline-block;
+            background-color: green;
+            border-radius: 5px;
+            padding: 10px 50px;
+            color: white;
+        }
+
+        .green-box:hover {
+            background-color: darkgreen;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li > div {
+            display: grid;
+            grid-template-columns: 100px 200px 1fr;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 10px;
+            backdrop-filter: blur(50px);
+        }
+
+        li > div > div {
+            color: #565656;
+        }
+
+        .card {
+            display: none;
+            align-items: center;
+            position: fixed;
+            padding-bottom: 30px;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.555);
+        }
+
+
+        .card > form {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        body {
+            background: rgb(231, 238, 174);
+            background: radial-gradient(circle, rgba(231, 238, 174, 1) 0%, rgba(148, 215, 233, 1) 100%);
+        }
+
+        input, textarea, select, option {
+            outline: none;
+            opacity: 0.6;
+        }
+
+        /*div{*/
+        /*    border:1px solid red;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<main>
+    <div id="pushPost" class="green-box">我要发帖</div>
+    <div>
+        <ul id="ulPost">
+            <li>
+                <hr>
+                <div>
+                    <img src="../oneshop/resource/images/per_1.jpg" alt=""
+                         style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                         height="60">
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">如何学习Java web</div>
+                    <div>板块：新课来了</div>
+                    <div>
+                        <span>发表时间:</span>
+                        <span>2021-03-01 12:00:00</span>
+                    </div>
+                </div>
+                <hr>
+            </li>
+            <li>
+                <hr>
+                <div>
+                    <img src="../oneshop/resource/images/per_2.jpg" alt=""
+                         style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                         height="60">
+                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">如何学习课工场课程?</div>
+                    <div>板块：新手报到</div>
+                    <div>
+                        <span>发表时间:</span>
+                        <span>2020-06-12 13:00:00</span>
+                    </div>
+                </div>
+                <hr>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <form action="" id="postForm">
+            <div>
+                <input type="text" id="textTitle" placeholder="请输入文章标题(1~50个字)"
+                       style="margin:30px 30px;height: 30px;width: 300px;line-height: 30px;" maxlength="50">
+            </div>
+            <div>
+                <label for="sepChoice">请选择板块</label>
+                <select name="sepChoice" id="sepChoice">
+                    <option value="0">------</option>
+                    <option value="新课来了">新课来了</option>
+                    <option value="新手报到">新手报到</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="postTextarea" id="postTextarea" cols="30" rows="10" placeholder="文章内容"
+                          style="margin-top:30px;resize: none;"></textarea>
+            </div>
+            <input type="submit" value="发表" class="green-box" style="width: 50%; margin: 10px auto">
+            <input type="button" id="back" class="green-box"
+                   style="background-color: orange;width: 50%; margin: 10px auto;" value="返回">
+        </form>
+    </div>
+</main>
+</body>
+
+<script>
+
+    // const escapeHTML = function (str) {
+    //     return str.replace(/&/g, '&amp;')
+    //         .replace(/</g, '&lt;')
+    //         .replace(/>/g, '&gt;')
+    //         .replace(/"/g, '&quot;')
+    //         .replace(/'/g, '&#039;');
+    // }
+
+    $(function () {
+        const $pushPost = $('#pushPost');
+        const $card = $('.card');
+
+
+        const escapeHTML = function (str) {
+            return $('<div>').text(str).html();
+        }
+
+        // pushPost.addEventListener('click', function () {
+        //     card.style.display = 'block';
+        //     card.style.left = '50%';
+        //     card.style.top = '50%';
+        // });
+
+        $pushPost.click(function () {
+            $card.css({
+                'left': '50%',
+                'top': '50%'
+            });
+            $card.show();
+        });
+
+        const $back = $('#back');
+        // back.addEventListener('click', function () {
+        //     card.style.display = 'none';
+        // });
+        $back.click(function () {
+            $card.hide();
+        });
+
+        const $postForm = $('#postForm');
+        $postForm.submit(
+            function (e) {
+                e.preventDefault();
+                let $title = $('#textTitle');
+                let $sepChoice = $('#sepChoice');
+                let dateTime = new Date();
+                let year = dateTime.getFullYear();
+                let month = dateTime.getMonth() + 1;
+                if (month < 10) {
+                    month = '0' + month;
+                }
+                let day = dateTime.getDate();
+                if (day < 10) {
+                    day = '0' + day;
+                }
+                let hour = dateTime.getHours();
+                if (hour < 10) {
+                    hour = '0' + hour;
+                }
+                let minute = dateTime.getMinutes();
+                if (minute < 10) {
+                    minute = '0' + minute;
+                }
+                let second = dateTime.getSeconds();
+                if (second < 10) {
+                    second = '0' + second;
+                }
+                let timeStr = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+                let randomNum = Math.floor(Math.random() * 19) + 1;
+
+                if ($title.val() === null || $title.val().trim() === '') {
+                    alert('请输入标题');
+                } else if ($sepChoice.val() === null || $sepChoice.val() === '0') {
+                    alert('请选择板块');
+                } else {
+                    const $ulPost = $('#ulPost');
+                    const $li = $(`<li>
+                                <hr>
+                                <div>
+                                    <img src="../oneshop/resource/images/per_${randomNum}.jpg" alt="" style="border-radius: 50%;grid-row: 1/span 2;" width="60"
+                                         height="60">
+                                    <div style="font-weight: bold;grid-column: 2 / span 2;color: #161616">${escapeHTML($title.val())}</div>
+                                    <div>板块：${$sepChoice.val()}</div>
+                                    <div>
+                                        <span>发表时间:</span>
+                                        <span>${timeStr}</span>
+                                    </div>
+                                </div>
+                                <hr>
+</li>`);
+                    $ulPost.prepend($li);
+                    $title.val('');
+                    $sepChoice.val('0');
+                    $('#postTextarea').empty();
+                    $card.hide();
+                }
+            });
+
+        // 为$card元素绑定一个mousedown事件监听器
+        $card.on('mousedown', function (e) {
+            // 如果点击的元素不是div，直接返回，不执行拖拽操作
+            // 这是一个易错点，因为如果$card内部还有其他元素，点击这些元素也会触发mousedown事件
+            // 使用e.target.tagName.toLowerCase()来确保获取到的标签名是小写的
+            if (e.target.tagName.toLowerCase() !== 'div') return;
+
+            // 获取$card的当前位置（相对于文档的偏移量）
+            const cardOffset = $card.offset();
+
+            // 计算鼠标点击位置和$card左上角之间的距离
+            // 这是另一个易错点，应该使用e.clientX和e.clientY来获取鼠标的位置
+            const dtLeft = e.clientX - cardOffset.left;
+            const dtTop = e.clientY - cardOffset.top;
+
+            // 为document对象绑定mousemove事件监听器，用于处理拖拽过程
+            // 使用了事件命名空间.cardDrag，便于之后移除事件监听器
+            $(document)
+                .on('mousemove.cardDrag', function (event) {
+                    // 在鼠标移动时，更新$card的位置
+                    // 使用.offset()方法来同时设置元素的top和left值
+                    // 这里计算新位置时考虑了初始点击位置和$card左上角之间的距离
+                    $card.offset({
+                        'left': event.clientX - dtLeft,
+                        'top': event.clientY - dtTop
+                    });
+                })
+                // 为document对象绑定一次mouseup事件监听器，用于处理拖拽结束
+                .one('mouseup', function () {
+                    // 鼠标释放时，移除mousemove事件监听器，结束拖拽
+                    // 这里使用了.off()方法和事件命名空间来精确移除事件监听器
+                    $(document).off('mousemove.cardDrag');
+                });
+        });
+
+
+        // $card.on('mousedown', function (e) {
+        //     if (e.target.tagName.toLowerCase() !== 'div') return;
+        //     const cardOffset = $card.offset();
+        //     const dtLeft = e.clientX - cardOffset.left;
+        //     const dtTop = e.clientY - cardOffset.top;
+        //     $(document)
+        //         .on('mousemove.cardDrag', function (event) {
+        //             $card.offset({
+        //                 'left': event.clientX - dtLeft,
+        //                 'top': event.clientY - dtTop
+        //             });
+        //         })
+        //         .one('mouseup', function () {
+        //             $(document).off('mousemove.cardDrag');
+        //         });
+        // });
+
+    });
+</script>
+
+</html>
