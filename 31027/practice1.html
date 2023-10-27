@@ -14,13 +14,16 @@
             width: 300px;
             display: flex;
             flex-direction: column;
+            align-items: flex-end;
+            margin: 0 auto;
         }
-        .container>li{
 
+        .container > li {
             height: 50px;
             background-color: #9b9b9b;
             border-radius: 10px 0 0 10px;
             margin-bottom: 5px;
+            padding: 5px 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,19 +31,59 @@
             color: white;
             cursor: pointer;
         }
+
+        .container > li > p {
+            display: none;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .darkred-background {
+            background-color: darkred;
+        }
+
     </style>
 
 </head>
 <body>
 <main>
     <ul class="container">
-        <li><span>我的关注</span><span class="icon">🛍️</span></li>
-        <li><span class="icon">🛒</span></li>
-        <li><span class="icon">⭐️</span></li>
-        <li><span class="icon">👣</span></li>
-        <li><span class="icon">✉️</span></li>
-        <li><span class="icon">💬</span></li>
+        <li><p>京东会员</p><span>🛍️</span></li>
+        <li><p>购物车</p><span>🛒</span></li>
+        <li><p>我的关注</p><span>⭐️</span></li>
+        <li><p>我的足迹</p><span>👣</span></li>
+        <li><p>我的消息</p><span>✉️</span></li>
+        <li><p>咨询JIMI</p><span>💬</span></li>
     </ul>
 </main>
 </body>
+<script>
+    $(function () {
+        //简单写法
+        // $('.container>li').hover(
+        //     function () {
+        //         $(this).css('background-color', 'darkred');
+        //         $(this).children('p').stop(true,false).animate({width: "show"}, 500);
+        //     },
+        //     function () {
+        //         $(this).css('background-color', '#9b9b9b');
+        //         $(this).children('p').stop(true,false).animate({width: "hide"}, 500);
+        //     }
+        // )
+
+        //使用index()方法
+        $('.container>li>span').hover(
+            function () {
+                let index = $(this).index('.container>li>span');
+                $(`.container > li:eq(${index})`).css('background-color', 'darkred');
+                $(`.container > li > p:eq(${index})`).stop(true, false).animate({width: "show"}, 500);
+            },
+            function () {
+                let index = $(this).index('.container>li>span');
+                $(`.container > li:eq(${index})`).css('background-color', '#9b9b9b');
+                $(`.container > li > p:eq(${index})`).stop(true, false).animate({width: "hide"}, 500);
+            }
+        )
+    })
+</script>
 </html>

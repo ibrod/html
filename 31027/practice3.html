@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../oneshop/css/index/index.css">
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        .display-card {
+            display: none;
+            position: absolute;
+            background-color: #dcdcdc;
+            padding: 5px 10px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        main{
+            position: relative;
+            top:50px;
+            clear: both;
+            display: flex;
+            justify-content: center;
+        }
+        ul {
+            list-style: none;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            /*border: 1px grey solid;*/
+        }
+
+        ul > li:not([class="container-head"]) {
+            padding: 10px 10px;
+            color: grey;
+            font-size: 20px;
+            background-color: #e3e3e3;
+            cursor: pointer;
+            margin-bottom: 1px;
+        }
+
+        .container-head {
+            background-color: green;
+            font-size: 30px;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .card {
+            width: 500px;
+            height: 300px;
+            background-color: #9b9b9b;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            margin-left: 30px;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            /*border: 1px dashed blue;*/
+        }
+    </style>
+</head>
+<body>
+<div class="top-head">
+    <div style="float:left;margin-left: 20px;">
+        送货至:四川
+    </div>
+    <div style="float: right; width: 620px;display: inline-block">
+        <a href="./login.html" style="color: #333333">
+            您好！请登录
+        </a>
+        <a href="./register.html" style="color: red;text-decoration: none;">
+            免费注册
+        </a>
+        &nbsp;|&nbsp;
+        <a href="" class="">
+            我的订单
+        </a>
+        &nbsp;|&nbsp;
+        <div style="display: inline-block;">
+            <a href="" class="display-card-top">
+                收藏夹
+                <img src="../oneshop/resource/images/t_arrow.gif" alt="t_arrow.gif" style="vertical-align: middle;">
+            </a>
+            <div class="display-card">
+                <a href="" style="display: block;color: inherit;">收藏夹1</a>
+                <a href="" style="display: block;color: inherit;">收藏夹2</a>
+                <a href="" style="display: block;color: inherit;">收藏夹3</a>
+                <a href="" style="display: block;color: inherit;">收藏夹4</a>
+            </div>
+        </div>
+
+        <div style="display: inline-block;">
+            <a href="" class="display-card-top">
+                联系客服
+                <img src="../oneshop/resource/images/t_arrow.gif" alt="t_arrow.gif" style="vertical-align: middle;">
+            </a>
+            <div class="display-card">
+                <a href="" style="display: block;color: inherit;">客户服务1</a>
+                <a href="" style="display: block;color: inherit;">客户服务2</a>
+                <a href="" style="display: block;color: inherit;">客户服务3</a>
+                <a href="" style="display: block;color: inherit;">客户服务4</a>
+            </div>
+        </div>
+
+        <div style="display: inline-block;">
+            <a href="" class="display-card-top">
+                网站导航
+                <img src="../oneshop/resource/images/t_arrow.gif" alt="t_arrow.gif" style="vertical-align: middle;">
+            </a>
+            <div class="display-card">
+                <a href="" style="display: block;color: inherit;">网站导航1</a>
+                <a href="" style="display: block;color: inherit;">网站导航2</a>
+                <a href="" style="display: block;color: inherit;">网站导航3</a>
+                <a href="" style="display: block;color: inherit;">网站导航4</a>
+            </div>
+        </div>
+        &nbsp;|&nbsp;
+        关注我们:
+        &nbsp;&nbsp;
+        <a href="" style="color: #333333;">
+            <img src="../oneshop/resource/images/sh1.png" alt="WeiBo" style="margin-top: 5px">
+        </a>
+        <a href="" style="color: #333333;">
+            <img src="../oneshop/resource/images/sh2.png" alt="WeChat" style="margin-top: 5px">
+        </a>
+        &nbsp;|&nbsp;
+        <a href="" style="display: inline-block;vertical-align: middle;color: inherit">
+            手机版
+        </a>
+        <img src="../oneshop/resource/images/s_tel.png" alt="s_tel.png" style="vertical-align: middle;">
+        &nbsp;&nbsp;
+    </div>
+
+    <main>
+        <ul>
+            <li class="container-head">常见问题分类</li>
+            <li>京东金融</li>
+            <li>理财</li>
+            <li>白条</li>
+            <li>众筹</li>
+            <li>京东钱包</li>
+        </ul>
+        <div class="card">
+            京东金融
+        </div>
+        <div class="card">
+            理财
+        </div>
+        <div class="card">
+            白条
+        </div>
+        <div class="card">
+            众筹
+        </div>
+        <div class="card">
+            京东钱包
+        </div>
+    </main>
+</div>
+
+</body>
+<script>
+    $(function () {
+        let $card = $('.card');
+        $card.hide();
+        $card.eq(0).show();
+        $('.display-card-top').hover(
+            function () {
+                $(this).next().stop(true, false).show('slow');
+            },
+            function () {
+                $(this).next().stop(true, false).hide('fast');
+            }
+        )
+
+        let $content = $('main>ul>li:not([class])');
+        $content.click(
+            function () {
+                $(this).css('background-color', 'orange');
+                $(this).siblings().css('background-color', '#e3e3e3');
+                $(this).parent().children().first().css('background-color', 'green');
+                let index = $(this).index()-1;
+                let hidden = ($card.eq(index).css('display') === 'none');
+                if(hidden) {
+                    $card.hide();
+                    $card.eq(index).slideDown('slow');
+                }else{
+                    $card.eq(index).show();
+                    $card.eq(index).slideUp('slow');
+                }
+            }
+        )
+    })
+</script>
+</html>
