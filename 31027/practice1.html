@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>京东首页右侧固定层</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+
+    <style>
+        .container {
+            list-style: none;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .container>li{
+
+            height: 50px;
+            background-color: #9b9b9b;
+            border-radius: 10px 0 0 10px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+<main>
+    <ul class="container">
+        <li><span>我的关注</span><span class="icon">🛍️</span></li>
+        <li><span class="icon">🛒</span></li>
+        <li><span class="icon">⭐️</span></li>
+        <li><span class="icon">👣</span></li>
+        <li><span class="icon">✉️</span></li>
+        <li><span class="icon">💬</span></li>
+    </ul>
+</main>
+</body>
+</html>
