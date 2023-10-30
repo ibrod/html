@@ -16,14 +16,17 @@
             padding: 5px 10px;
             overflow: hidden;
             white-space: nowrap;
+            z-index: 9;
         }
-        main{
+
+        main {
             position: relative;
-            top:50px;
+            top: 50px;
             clear: both;
             display: flex;
             justify-content: center;
         }
+
         ul {
             list-style: none;
             width: 300px;
@@ -34,7 +37,7 @@
         }
 
         ul > li:not([class="container-head"]) {
-            padding: 10px 10px;
+            padding: 10px 1px;
             color: grey;
             font-size: 20px;
             background-color: #e3e3e3;
@@ -63,11 +66,19 @@
             margin-left: 30px;
         }
 
-        *{
+        * {
             margin: 0;
             padding: 0;
             /*border: 1px dashed blue;*/
         }
+
+        .mini-li>p{
+            background-color: white;
+            margin: 0;
+            font-size: 15px;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -145,26 +156,65 @@
     <main>
         <ul>
             <li class="container-head">常见问题分类</li>
-            <li>京东金融</li>
-            <li>理财</li>
-            <li>白条</li>
-            <li>众筹</li>
-            <li>京东钱包</li>
+            <li>
+                <span>
+                    京东金融
+                </span>
+                <div class="mini-li">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+            </li>
+            <li>
+                <span>理财</span>
+                <div class="mini-li">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+            </li>
+            <li>
+                <span>白条</span>
+                <div class="mini-li">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+            </li>
+            <li>
+               <span>众筹</span>
+                <div class="mini-li">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+            </li>
+            <li>
+                <p>京东钱包</p>
+                <div class="mini-li">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                </div>
+            </li>
         </ul>
-        <div class="card">
-            京东金融
-        </div>
-        <div class="card">
-            理财
-        </div>
-        <div class="card">
-            白条
-        </div>
-        <div class="card">
-            众筹
-        </div>
-        <div class="card">
-            京东钱包
+        <div style="width: 500px;height: 300px">
+            <div class="card">
+                京东金融
+            </div>
+            <div class="card">
+                理财
+            </div>
+            <div class="card">
+                白条
+            </div>
+            <div class="card">
+                众筹
+            </div>
+            <div class="card">
+                京东钱包
+            </div>
         </div>
     </main>
 </div>
@@ -177,25 +227,35 @@
         $card.eq(0).show();
         $('.display-card-top').hover(
             function () {
-                $(this).next().stop(true, false).show('slow');
+                $(this).next().stop(true, true).show('slow');
             },
             function () {
-                $(this).next().stop(true, false).hide('fast');
+                $(this).next().stop(true, true).hide('fast');
+            }
+        )
+        $('.display-card').hover(
+            function () {
+                $(this).stop(true, true).show();
+            },
+            function () {
+                $(this).stop(true, true).hide();
             }
         )
 
         let $content = $('main>ul>li:not([class])');
         $content.click(
             function () {
+                // $(this).children('.mini-li').children('p').slideDown('slow');
                 $(this).css('background-color', 'orange');
                 $(this).siblings().css('background-color', '#e3e3e3');
                 $(this).parent().children().first().css('background-color', 'green');
-                let index = $(this).index()-1;
+                let index = $(this).index() - 1;
                 let hidden = ($card.eq(index).css('display') === 'none');
-                if(hidden) {
+                if (hidden) {
                     $card.hide();
                     $card.eq(index).slideDown('slow');
-                }else{
+                } else {
+                    // $(this).children('.mini-li').children('p').slideUp('slow');
                     $card.eq(index).show();
                     $card.eq(index).slideUp('slow');
                 }

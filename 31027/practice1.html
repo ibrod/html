@@ -59,31 +59,31 @@
 </body>
 <script>
     $(function () {
-        //简单写法
-        // $('.container>li').hover(
-        //     function () {
-        //         $(this).css('background-color', 'darkred');
-        //         $(this).children('p').stop(true,false).animate({width: "show"}, 500);
-        //     },
-        //     function () {
-        //         $(this).css('background-color', '#9b9b9b');
-        //         $(this).children('p').stop(true,false).animate({width: "hide"}, 500);
-        //     }
-        // )
-
-        //使用index()方法
-        $('.container>li>span').hover(
+        // 简单写法
+        $('.container>li').hover(
             function () {
-                let index = $(this).index('.container>li>span');
-                $(`.container > li:eq(${index})`).css('background-color', 'darkred');
-                $(`.container > li > p:eq(${index})`).stop(true, false).animate({width: "show"}, 500);
+                $(this).css('background-color', 'darkred');
+                $(this).children('p').stop(true,false).animate({width: "show"}, 500);
             },
             function () {
-                let index = $(this).index('.container>li>span');
-                $(`.container > li:eq(${index})`).css('background-color', '#9b9b9b');
-                $(`.container > li > p:eq(${index})`).stop(true, false).animate({width: "hide"}, 500);
+                $(this).css('background-color', '#9b9b9b');
+                $(this).children('p').stop(true,false).animate({width: "hide"}, 500);
             }
         )
+
+        // //使用index()方法
+        // $('.container>li>span').hover(
+        //     function () {
+        //         let index = $(this).index('.container>li>span');
+        //         $(`.container > li:eq(${index})`).css('background-color', 'darkred');
+        //         $(`.container > li > p:eq(${index})`).stop(true, false).animate({width: "show"}, 500);
+        //     },
+        //     function () {
+        //         let index = $(this).index('.container>li>span');
+        //         $(`.container > li:eq(${index})`).css('background-color', '#9b9b9b');
+        //         $(`.container > li > p:eq(${index})`).stop(true, false).animate({width: "hide"}, 500);
+        //     }
+        // )
     })
 </script>
 </html>
