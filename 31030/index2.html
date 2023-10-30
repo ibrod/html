@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../util/jquery-3.7.1.js"></script>
+    <style>
+        .container {
+            margin: 50px auto;
+            width: 500px;
+        }
+
+        .chatContent {
+            overflow: auto;
+            word-break: break-all;
+            height: 350px;
+            border: 1px solid #9b9b9b;
+            padding: 5px;
+        }
+
+        .chatMessage {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .chatMessage > div {
+            margin-left: 5px;
+        }
+
+        .userName {
+            color: blue;
+        }
+
+        .message {
+            background-color: #d7d7d7;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .sendMessage {
+            height: 130px;
+            border: 1px solid #9b9b9b;
+            padding: 5px;
+        }
+
+        .sendMessageContent {
+            word-break: break-all;
+            overflow: auto;
+            height: 100px;
+        }
+
+        .sendMessageContent:focus {
+            /*outline: 1px solid #d9d9d9;*/
+            outline: none;
+        }
+
+        .chatBar {
+            height: 20px;
+            border: 1px solid #9b9b9b;
+            padding: 5px;
+            background-color: #E7EEF9;
+        }
+
+        .opButton {
+            background-color: #069DD5;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            float: right;
+            margin-left: 5px;
+        }
+
+        /*.chatMessage > span .chatMessage > img {*/
+        /*    float: left;*/
+        /*}*/
+
+
+        * {
+            /*border: 1px dashed blue;*/
+        }
+
+        /*div {*/
+        /*    width: 100px;*/
+        /*    height: 100px;*/
+        /*    font-size: 30px;*/
+        /*    border: 1px dashed blue;*/
+        /*    !*使文本可以换行显示*!*/
+        /*    word-break: break-all;*/
+        /*    overflow: auto;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<main class="container">
+    <div class="chatContent">
+        <div class="chatMessage">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
+            <div>
+                <span class="userName">时尚伊人</span>
+                <div class="message">你好，我是时尚伊人，很高兴为您服务!</div>
+            </div>
+        </div>
+
+        <div class="chatMessage">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
+            <div>
+                <span class="userName">时尚伊人</span>
+                <div class="message">你好，我是时尚伊人，很高兴为您服务!</div>
+            </div>
+        </div>
+
+        <div class="chatMessage">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
+            <div>
+                <span class="userName">时尚伊人</span>
+                <div class="message">
+                    你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!
+                </div>
+            </div>
+        </div>
+
+        <div class="chatMessage">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
+            <div>
+                <span class="userName">时尚伊人</span>
+                <div class="message">
+                    你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!
+                </div>
+            </div>
+        </div>
+
+        <div class="chatMessage">
+            <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
+            <div>
+                <span class="userName">时尚伊人</span>
+                <div class="message">
+                    你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!你好，我是时尚伊人，很高兴为您服务!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chatBar">
+        <img src="../31025/resource/chatBar.png" alt="" height="20px">
+        <img src="../31025/resource/history.png" alt="" height="20px" style="float: right;">
+    </div>
+    <div class="sendMessage">
+        <div class="sendMessageContent" contenteditable="true" id="sendTxtCont">
+        </div>
+        <input type="text" name="userName" id="userName" placeholder="请在这里输入你的用户名" style="height: 25px;width: 150px;">
+        <span class="opButton" id="send">
+            发送(s)
+        </span>
+        <span class="opButton" id="cancel">
+            关闭(c)
+        </span>
+        <span class="opButton" id="refresh">
+            刷新(r)
+        </span>
+        <span class="opButton" id="clear">
+            清空(e)
+        </span>
+    </div>
+
+</main>
+</body>
+
+<script>
+
+    let lastComments = null;
+    const getComments=function (){
+        $.ajax({
+            url: 'http://localhost:3000/pk/getComments',
+            type: 'GET',
+            success: function (comments) {
+                // console.log("Received comments: ", comments);
+                if (JSON.stringify(lastComments) === JSON.stringify(comments)) {
+                    return;
+                }
+                let $chatContent = $('.chatContent');
+                lastComments = comments;
+                $chatContent.empty();
+                for (let i = 0; i < comments.length; i++) {
+                    $chatContent.append(`
+                            <div class="chatMessage">
+                                <img src="../oneshop/resource/images/per_1.jpg" alt="" width="50px" height="50px">
+                                <div>
+                                    <span class="userName">${comments[i].userName}</span>
+                                    <div class="message">${comments[i].userComment}</div>
+                                </div>
+                            </div>
+                        `);
+                }
+                $chatContent.scrollTop($chatContent[0].scrollHeight);
+            },
+            error: function (xhr, status, error) {
+                console.error("Failed to submit comment", status, error);
+            }
+        });
+    }
+
+    $(
+        function () {
+            $('#send').click(
+                function () {
+                    let userName = $('#userName').val();
+                    let userComment = $('#sendTxtCont').html();
+                    if(userName.trim()===''||userComment.trim()===''){
+                        alert('用户名或评论不能为空');
+                        return;
+                    }
+                    let commentData = {
+                        userName: userName,
+                        userComment: userComment
+                    }
+                    $.ajax({
+                        url: 'http://localhost:3000/pk/submitComment',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(commentData),
+                        success: function (comments) {
+                            console.log("Received comments: ", comments);
+                            $('#sendTxtCont').html('');
+                            getComments();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Failed to submit comment", status, error);
+                        }
+                    });
+                }
+            )
+
+            $('#clear').click(
+                function (){
+                    $.ajax({
+                        url: 'http://localhost:3000/pk/clearComments',
+                        type: 'GET',
+                    });
+                    getComments();
+                }
+            )
+
+            $('#refresh').click(
+                function (){
+                    getComments();
+                }
+            )
+
+            $('#cancel').click(
+                function () {
+                    window.close();
+                }
+            )
+
+            $(document).keydown(
+                function (e) {
+                    if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
+                        e.preventDefault();
+                        $('#send').click();
+                    } else if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+                        $('#cancel').click();
+                    }else if ((e.ctrlKey || e.metaKey) && e.keyCode === 82) {
+                        $('#refresh').click();
+                    }else if ((e.ctrlKey || e.metaKey) && e.keyCode === 69) {
+                        $('#clear').click();
+                    }
+                }
+            )
+
+            getComments();
+            setInterval(getComments,1000);
+        }
+    );
+
+</script>
+
+</html>
