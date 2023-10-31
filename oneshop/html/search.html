@@ -5,8 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>Search</title>
+    <script src="../../util/jquery-3.7.1.js"></script>
+
     <link rel="stylesheet" href="../css/index/index.css ">
 
     <link rel="stylesheet" href="../css/detail/detail.css">
@@ -112,10 +113,28 @@
                 <a href="">连衣裙</a>
             </div>
         </div>
-        <div style="margin-right: 7%;">
+        <div style="margin-right: 7%;position: relative;">
             <div class="car-button">
                 <img src="../resource/images/car.png" alt="car.png" height="12">
                 购物车
+            </div>
+            <div class="cart-card">
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img"></div>
+                    <h3>宝贝许愿防</h3>
+                    <p>颜色：白色</p>
+
+<!--                    <div class="price">123.00</div>-->
+<!--                    <div style="display: flex;">-->
+<!--                        <div class="search-detail-content-button collection">收藏 <img-->
+<!--                                src="../resource/images/heart.png"-->
+<!--                                alt=""></div>-->
+<!--                        <div class="search-detail-content-button add-cart">加入购物车 <img-->
+<!--                                src="../resource/images/car.png"-->
+<!--                                alt="">-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
             </div>
         </div>
     </div>
@@ -209,7 +228,7 @@
             <div class="orangered-button" style="background-color:orangered;color: white">默认</div>
             <div class="orangered-button">销量<span style="vertical-align: middle"><img
                     src="../resource/images/topbottom.png" alt="" style="position: relative;top:2px;"></span></div>
-            <div class="orangered-button">价格<span style="vertical-align: middle"><img
+            <div class="orangered-button" id="priceSort">价格<span style="vertical-align: middle"><img
                     src="../resource/images/topbottom.png" alt="" style="position: relative;top:2px;"></span></div>
             <div class="orangered-button">新品</div>
         </div>
@@ -217,202 +236,242 @@
         <div class="search-detail-content">
             <div>
                 <img src="../resource/images/per_1.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">198.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_2.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">123.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
 
             <div>
                 <img src="../resource/images/per_3.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">111.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_4.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">4343.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_5.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">213.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_6.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">4322.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_7.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">1223.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_8.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">2222.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_9.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">3333.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_10.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">2222.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_11.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">3123.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_12.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">4343.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_13.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">1233.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_14.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">11.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_15.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">32432.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_16.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">7876.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_17.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">4324.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_18.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">9876.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_19.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">4324.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
             <div>
                 <img src="../resource/images/per_1.jpg" alt="">
-                <p class="price">￥198.00</p>
+                <p class="price">3336.00</p>
                 <p>水滴天然珍珠</p>
                 <div style="display: flex;">
-                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png" alt=""></div>
-                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png" alt="">
+                    <div class="search-detail-content-button collection">收藏 <img src="../resource/images/heart.png"
+                                                                                   alt=""></div>
+                    <div class="search-detail-content-button add-cart">加入购物车 <img src="../resource/images/car.png"
+                                                                                       alt="">
                     </div>
                 </div>
             </div>
@@ -556,30 +615,28 @@
 </body>
 
 <script>
-    //通过class查找元素
-    const divBox = document.getElementById('selectLength').getElementsByClassName('div-box');
-    for (let i = 0; i < divBox.length; i++) {
-        divBox[i].onclick = function () {
-            for (let j = 0; j < divBox.length; j++) {
-                divBox[j].style.backgroundImage = 'none'
-                divBox[j].style.border = "1px solid #ccc";
-            }
-            divBox[i].style.backgroundImage = `url(../resource/images/ch.png)`;
-            divBox[i].style.borderColor = "orangered";
+    $(
+        function () {
+            let sortFlag = true;
+            $('#priceSort').click(function () {
+                $(".search-detail-content").stop(true, true).hide().fadeIn(300);
+                let $prices = $(".search-detail-content>div>.price");
+                if (sortFlag) {
+                    $prices.sort(function (a, b) {
+                        return parseFloat($(a).text()) - parseFloat($(b).text());
+                    });
+                } else {
+                    $prices.sort(function (a, b) {
+                        return parseFloat($(b).text()) - parseFloat($(a).text());
+                    });
+                }
+                sortFlag = !sortFlag;
+                $prices.each(function (index, item) {
+                    $(item).parent().css('order', index + 1);
+                });
+            })
         }
-    }
-
-    const divBox2 = document.getElementById('selectColor').getElementsByClassName('div-box');
-    for (let i = 0; i < divBox2.length; i++) {
-        divBox2[i].onclick = function () {
-            for (let j = 0; j < divBox2.length; j++) {
-                divBox2[j].style.backgroundImage = 'none'
-                divBox2[j].style.border = "1px solid #ccc";
-            }
-            divBox2[i].style.backgroundImage = `url(../resource/images/ch.png)`;
-            divBox2[i].style.borderColor = "orangered";
-        }
-    }
+    )
 </script>
 
 </html>

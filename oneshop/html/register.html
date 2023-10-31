@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    <script src="../../util/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="../css/login/logintitle.css">
 </head>
 <body>
@@ -25,7 +26,8 @@
     <div style="font-weight: bolder;font-size: 30px;">1号店注册</div>
     <form action="get">
         <div style="width: 400px;margin: 0 auto;">
-            <input type="text" class="input-style" placeholder="手机号" pattern="^1[34578]\d{9}$" name="phoneNumber" required>
+            <input type="text" class="input-style" placeholder="手机号" pattern="^1[34578]\d{9}$" name="phoneNumber"
+                   id="phoneNumber" required>
             <input type="text" class="input-style" placeholder="验证码" name="vCode" required
                    style="width: 250px;float: left">
             <input type="button" class="get-code-button" value="获取验证码" required>
@@ -39,11 +41,39 @@
     </form>
 </div>
 
-    <footer style="text-align: center;margin-top: 50px;font-size: 5px;line-height: 25px;">
-        沪ICP备13044278号&nbsp;|&nbsp;合字B1.B2-20130004&nbsp;|&nbsp;营业执照
-        <br>
-        CopyRight&copy;1号店网上超市 2007-2016 , All Rights Reserved
-    </footer>
+<footer style="text-align: center;margin-top: 50px;font-size: 15px;line-height: 25px;">
+    沪ICP备13044278号&nbsp;|&nbsp;合字B1.B2-20130004&nbsp;|&nbsp;营业执照
+    <br>
+    CopyRight&copy;1号店网上超市 2007-2016 , All Rights Reserved
+</footer>
 
 </body>
+<script>
+    function sendSms(){
+        const $getCodeButton=$(".get-code-button");
+        $getCodeButton.attr("disabled", "true");
+        let count = 60;
+        let timer = setInterval(function () {
+            count--;
+            $getCodeButton.val(count + "秒后可重新发送");
+            if (count === 0) {
+                clearInterval(timer);
+                $getCodeButton.val("获取验证码");
+                $getCodeButton.removeAttr("disabled");
+            }
+        }, 1000);
+    }
+
+    $(function () {
+        $(".get-code-button").click(function () {
+            let $phoneNumber = $("#phoneNumber")
+            if (!$phoneNumber[0].checkValidity()) {
+                alert("请输入正确的手机号");
+            }else{
+                alert("验证码已发送");
+                sendSms();
+            }
+        });
+    });
+</script>
 </html>

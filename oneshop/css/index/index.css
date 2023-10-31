@@ -11,7 +11,7 @@ body, html {
 }
 
 .top-head {
-    width: 100%;
+    width: 100vw;
     height: 2rem;
     background-color: #F0F0F0;
     top: 0;
@@ -56,9 +56,6 @@ a {
     /*align-items: center;*/
 }
 
-/*div{*/
-/*    border: 1px solid blue;*/
-/*}*/
 
 .search-input {
     /*红色边框*/
@@ -100,7 +97,7 @@ a {
 
 .search-form a {
     color: grey;
-    font-size: 5px;
+    font-size: 15px;
     margin-left: 5px;
 }
 
@@ -291,20 +288,49 @@ nav {
     /*border: 1px solid #7cef1e;*/
     margin-top: 2%;
     position: relative;
-
 }
 
 .sep-ul > li {
+    position: relative;
     color: white;
     height: 50px;
     margin-left: 5%;
     display: flex;
     align-items: center;
+    z-index: 10;
+}
+
+.sep-ul-card {
+    position: absolute;
+    left: 215px;
+    top: 0;
+    z-index: 11;
+    background-color: orangered;
+    height: 400px;
+    width: 700px;
+    cursor: auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 50px;
+    padding: 20px;
+}
+
+.sep-ul-card>h2{
+    grid-column: 1/8;
+}
+
+.sep-ul-card>span{
+    cursor: pointer;
+}
+
+.sep-ul-card>span:hover {
+    color: gold;
 }
 
 .sep-ul > li:hover {
     cursor: pointer;
-    transform: translate(38px, 0);
+    transform: translate(40px, 0);
     transition: all 0.5s;
 }
 
@@ -338,8 +364,7 @@ nav {
     top: 4px;
     height: 504px;
     width: 950px;
-    background-color: #3fa9f5;
-    background-image: url("../../resource/images/ban1.jpg");
+    /*background-image: url("../../resource/images/ban1.jpg");*/
     background-size: 100% 100%;
 }
 
@@ -388,6 +413,8 @@ nav {
 
 .news-content {
     line-height: 40px;
+    height: 200px;
+    overflow: hidden;
 }
 
 .news-content > div:hover {
@@ -420,7 +447,7 @@ nav {
     box-shadow: 0 0 10px #888888;
 }
 
-.pic-group > div:hover >  img {
+.pic-group > div:hover > img {
     transform: scale(1.03);
     transition: 0.5s all;
 }
@@ -492,7 +519,7 @@ nav {
     float: left;
 }
 
-.fresh-right > div:hover >img {
+.fresh-right > div:hover > img {
     transform: scale(1.05);
     transition: all 0.5s;
 }

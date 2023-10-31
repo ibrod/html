@@ -21,12 +21,11 @@
 
     const getText=function (){
         $.ajax({
-            url:'http://thod.top:1090/1.txt',
+            url:'./a.txt',
             method:'get',
-            dataType:'jsonp',
-            jsonpCallback:'test',
+            dataType:'text',
             success:function (data){
-                $('body').append(`<h1>${data[0]}</h1>`).append(`<p class="paragraph">${data[1]}</p>`);
+                $('body').append(`<h1>${data}</h1>`);
             },
             error:function (xhr,status,error){
                 console.log('error',status,error);
