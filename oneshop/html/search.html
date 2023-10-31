@@ -121,19 +121,11 @@
             <div class="cart-card">
                 <div class="cart-card-item">
                     <div class="cart-card-item-img"></div>
-                    <h3>宝贝许愿防</h3>
+                    <h3>水滴天然珍珠</h3>
                     <p>颜色：白色</p>
-
-<!--                    <div class="price">123.00</div>-->
-<!--                    <div style="display: flex;">-->
-<!--                        <div class="search-detail-content-button collection">收藏 <img-->
-<!--                                src="../resource/images/heart.png"-->
-<!--                                alt=""></div>-->
-<!--                        <div class="search-detail-content-button add-cart">加入购物车 <img-->
-<!--                                src="../resource/images/car.png"-->
-<!--                                alt="">-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="count"><a>-</a><input type="text" name="" id="" value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">198.00</div>
                 </div>
             </div>
         </div>
@@ -617,6 +609,7 @@
 <script>
     $(
         function () {
+            //处理排序
             let sortFlag = true;
             $('#priceSort').click(function () {
                 $(".search-detail-content").stop(true, true).hide().fadeIn(300);
@@ -635,6 +628,48 @@
                     $(item).parent().css('order', index + 1);
                 });
             })
+
+            //处理购物车
+            let $cartButton = $('.car-button');
+            let $cartCard = $('.cart-card');
+            let $addCart = $('.add-cart');
+            $addCart.click(
+                function (){
+                    let name = $(this).parent().prev().text();
+                    let price = $(this).parent().prev().prev().text();
+                    let img = $(this).parent().prev().prev().prev().attr('src');
+                    $cartCard.append(`
+                        <div class="cart-card-item">
+                            <div class="cart-card-item-img" style="background-image: url(${img})"></div>
+                            <h3>${name}</h3>
+                            <p>颜色：白色</p>
+                            <div class="count"><a>-</a><input type="text" name="" id="" value="1"><a>+</a></div>
+                            <div class="delete">X</div>
+                            <div class="price">${price}</div>
+                        </div>
+                    `);
+                    $cartCard.last().children('delete').click(function (){
+                        $(this).parent().remove();
+                    })
+                    $cartCard.last().children('count').children('a').click(function (){
+                        let count = $(this).parent().children('input').val();
+                        if($(this).text() === '+'){
+                            count++;
+                        }else{
+                            count--;
+                        }
+                        $(this).parent().children('input').val(count);
+                    })
+                    $cartCard.last().children('count').children('input').change(function (){
+                        let count = $(this).val();
+                        if(count < 1){
+                            count = 1;
+                        }
+                        $(this).val(count);
+                    })
+                }
+            );
+
         }
     )
 </script>
