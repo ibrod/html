@@ -8,6 +8,7 @@
     <title>HomePage</title>
     <script src="../../util/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="../css/index/index.css ">
+    <link rel="stylesheet" href="../css/search/search.css">
 </head>
 <body>
 <div class="top-head">
@@ -107,10 +108,80 @@
                 <a href="">连衣裙</a>
             </div>
         </div>
-        <div style="margin-right: 7%;">
+        <div style="margin-right: 7%;position: relative;z-index: 99;">
             <div class="car-button">
                 <img src="../resource/images/car.png" alt="car.png" height="12">
                 购物车
+            </div>
+            <div class="cart-card" style="right: -300px; display: none;">
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img" style="background-image: url(../resource/images/per_1.jpg)"></div>
+                    <h3>水滴天然珍珠t</h3>
+                    <p>颜色：白色</p>
+                    <div class="count"><a>-</a><input type="text" name=""  value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">3336.00</div>
+                </div>
+
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img" style="background-image: url(../resource/images/per_16.jpg)"></div>
+                    <h3>水滴天然珍珠p</h3>
+                    <p>颜色：白色</p>
+                    <div class="count"><a>-</a><input type="text" name=""  value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">7876.00</div>
+                </div>
+
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img" style="background-image: url(../resource/images/per_18.jpg)"></div>
+                    <h3>水滴天然珍珠r</h3>
+                    <p>颜色：白色</p>
+                    <div class="count"><a>-</a><input type="text" name=""  value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">9876.00</div>
+                </div>
+
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img" style="background-image: url(../resource/images/per_13.jpg)"></div>
+                    <h3>水滴天然珍珠m</h3>
+                    <p>颜色：白色</p>
+                    <div class="count"><a>-</a><input type="text" name=""  value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">1233.00</div>
+                </div>
+
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img" style="background-image: url(../resource/images/per_9.jpg)"></div>
+                    <h3>水滴天然珍珠i</h3>
+                    <p>颜色：白色</p>
+                    <div class="count"><a>-</a><input type="text" name=""  value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">3333.00</div>
+                </div>
+
+                <div class="cart-card-item">
+                    <div class="cart-card-item-img" style="background-image: url(../resource/images/per_7.jpg)"></div>
+                    <h3>水滴天然珍珠g</h3>
+                    <p>颜色：白色</p>
+                    <div class="count"><a>-</a><input type="text" name=""  value="1"><a>+</a></div>
+                    <div class="delete">X</div>
+                    <div class="price">1223.00</div>
+                </div>
+
+
+
+                <!--                <div class="cart-card-item">-->
+                <!--                    <div class="cart-card-item-img"></div>-->
+                <!--                    <h3>水滴天然珍珠</h3>-->
+                <!--                    <p>颜色：白色</p>-->
+                <!--                    <div class="count"><a>-</a><input type="text" name="" id="" value="1"><a>+</a></div>-->
+                <!--                    <div class="delete">X</div>-->
+                <!--                    <div class="price">198.00</div>-->
+                <!--                </div>-->
+                <div class="cart-card-bottom">
+                    <div class="price-display">26877.00</div>
+                    <div class="pay">结算</div>
+                </div>
             </div>
         </div>
     </div>
@@ -1011,6 +1082,103 @@
         }, function () {
             $(this).next('.div-hover').stop(false,false).slideUp(400);
         })
+
+
+        let $cartButton = $('.car-button');
+        let $cartCard = $('.cart-card');
+
+        $cartCard.hide();
+
+        $cartCard.hover(
+            function (){
+                $cartCard.stop(true, true).show().animate({
+                    right: '0px'
+                }, 300);
+            },
+            function (){
+                $cartCard.stop(true, true).hide().animate({
+                    right: '-300px'
+                }, 300);
+            }
+        );
+
+        $cartButton.hover(
+            function (){
+                $cartCard.stop(true, true).show().animate({
+                    right: '0px'
+                }, 300);
+            },
+            function (){
+                $cartCard.stop(true, true).hide().animate({
+                    right: '-300px'
+                }, 300);
+            }
+        );
+
+        function updateCartPrice(){
+            let $prices = $('.cart-card-item>.price');
+            let sum = 0;
+            $prices.each(function (index, item){
+                sum += parseFloat($(item).text());
+            });
+            $('.cart-card-bottom>.price-display').text(sum.toFixed(2));
+        }
+        updateCartPrice();
+
+        function solveEmptyCart(){
+            if($cartCard.children('.cart-card-item').length === 0){
+                $cartCard.prepend(`
+                        <div class="empty-cart-info">
+                            <h3>购物车空空如也</h3>
+                            <p>快去挑选商品吧</p>
+                        </div>
+                    `);
+            }
+        }
+        solveEmptyCart();
+
+        let $item=$cartCard.children('.cart-card-item');
+        // alert($item.children('.price').text());
+        // $item.data('unitPrice', $item.children('.price').text());
+        $item.each(function (){
+            $(this).data('unitPrice', $(this).children('.price').text());
+        })
+        $item.children('.delete').click(function (){
+            $(this).parent().remove();
+            updateCartPrice();
+            solveEmptyCart();
+        })
+        // alert($item.children('.count').children('a').length);
+        $item.children('.count').children('a').click(function (){
+            let $count = $(this).parent().children('input');
+            if($(this).text() === '+'){
+                $count.val(parseInt($count.val())+1);
+            }else{
+                $count.val(parseInt($count.val())-1);
+            }
+            $count.change();
+        })
+        // alert($item.children('.count').children('input').val());
+        $item.children('.count').children('input').each(function (){
+            // 初始化时保存当前值作为之前的合法值
+            $(this).data('prev', $(this).val());
+        }).change(function (){
+            let newVal = $(this).val();
+            let prevVal = $(this).data('prev');
+            // 检查新值是否为合法数字
+            if(isNaN(newVal) || parseInt(newVal) < 1){
+                // 如果不合法，重置为之前的合法值
+                $(this).val(prevVal);
+            } else {
+                newVal=parseInt(newVal);
+                // 如果合法，更新之前的合法值
+                $(this).data('prev', newVal);
+                $(this).val(newVal);
+            }
+            $(this).parent().next().next().text(($(this).parent().parent().data('unitPrice')*$(this).val()).toFixed(2));
+            updateCartPrice();
+        });
+        updateCartPrice();
 
     })
 

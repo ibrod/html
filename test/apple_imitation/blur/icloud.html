@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .toolbar-banner{
+            color: #1d1d1f;
+            font-family: SF Pro Text,Helvetica Neue,sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.2;
+            text-size-adjust: 100%;
+            text-rendering: optimizeLegibility;
+            -webkit-box-direction: normal;
+            visibility: visible!important;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            position: sticky;
+            inset-block-start: 0;
+            z-index: 3;
+            top: 0;
+        }
+        .application-toolbar{
+            color: #1d1d1f;
+            font-family: SF Pro Text,Helvetica Neue,sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.2;
+            text-size-adjust: 100%;
+            text-rendering: optimizeLegibility;
+            -webkit-box-direction: normal;
+            visibility: visible!important;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            block-size: 44px;
+            min-block-size: 44px;
+            display: flex;
+            letter-spacing: 0;
+            box-sizing: content-box;
+            min-inline-size: 100%;
+            height: 44px;
+            min-height: 44px;
+            min-width: 100%;
+            background-color: rgba(233, 233, 234, 0.5);
+            backdrop-filter: blur(14px);
+        }
+        body{
+            background-image: linear-gradient(90deg, #71ff00 0%, #0000e1 50%, #ff001f 100%);
+        }
+    </style>
+</head>
+<body>
+<div class="page-content">
+    <header class="toolbar-banner" role="banner">
+        <div class="application-toolbar login-theme">
+            <div class="toolbar-container">
+                <div class="application-toolbar-start-view">
+                    <div class="cloudos-application-toolbar-start-view"><a href="" aria-label="导航至 icloud.com 主页"
+                                                                           class="ICloudLogo unstyled-link nav-link">
+                        <svg width="82" height="31" xmlns="http://www.w3.org/2000/svg" class="apple-icloud-logo"
+                             aria-hidden="true">
+                            <g fill="none" fill-rule="nonzero">
+                                <path d="M16.907 16.5h2.55V5.423h-2.55V16.5Zm1.28-12.832c.412 0 .763-.144 1.05-.43a1.41 1.41 0 0 0 .432-1.033c0-.407-.144-.753-.432-1.038a1.445 1.445 0 0 0-1.05-.426c-.407 0-.756.142-1.046.426-.291.285-.437.63-.437 1.038 0 .401.146.745.437 1.032.29.287.64.43 1.046.43v.001Zm9.915 13.156c1.14 0 2.157-.21 3.052-.631.864-.395 1.616-1 2.188-1.758.563-.752.908-1.624 1.037-2.619l.007-.091h-2.594l-.021.076a3.58 3.58 0 0 1-.713 1.465 3.35 3.35 0 0 1-1.258.943c-.5.219-1.065.328-1.695.328-.847 0-1.582-.22-2.204-.663-.623-.442-1.103-1.07-1.441-1.884-.338-.813-.507-1.776-.507-2.886v-.016c0-1.115.17-2.076.507-2.886.338-.81.817-1.434 1.439-1.875.62-.44 1.354-.66 2.199-.66.634 0 1.201.117 1.702.351.501.235.92.565 1.257.99.338.425.572.926.705 1.505l.026.105h2.59l-.004-.093c-.118-1.006-.46-1.895-1.028-2.668a5.886 5.886 0 0 0-2.204-1.819c-.901-.439-1.916-.658-3.044-.658-1.405 0-2.619.311-3.642.935-1.022.624-1.812 1.511-2.368 2.663-.556 1.152-.834 2.523-.834 4.113v.016c0 1.588.278 2.958.834 4.11.555 1.154 1.346 2.043 2.372 2.669 1.026.625 2.24.938 3.642.938Zm8.034-.324h2.55V1.24h-2.55V16.5Zm9.534.222c1.1 0 2.049-.231 2.846-.693.797-.461 1.413-1.122 1.846-1.982.434-.86.65-1.886.65-3.08v-.02c0-1.191-.218-2.216-.655-3.074a4.68 4.68 0 0 0-1.852-1.98c-.798-.46-1.744-.691-2.838-.691-1.086 0-2.03.23-2.829.694a4.69 4.69 0 0 0-1.855 1.981c-.438.859-.656 1.882-.656 3.07v.02c0 1.191.216 2.217.65 3.078.434.86 1.05 1.522 1.85 1.984.8.462 1.747.693 2.843.693Zm.004-2.066c-.572 0-1.063-.146-1.472-.436-.408-.291-.722-.711-.941-1.261-.219-.55-.329-1.213-.329-1.99v-.02c0-.776.11-1.438.33-1.985.22-.548.535-.967.944-1.259.408-.291.896-.437 1.461-.437.571 0 1.06.145 1.469.436.408.29.721.71.941 1.258.22.549.33 1.21.33 1.987v.02c0 .776-.11 1.438-.328 1.988-.218.55-.53.97-.936 1.262-.406.29-.896.437-1.469.437Zm10.596 2.066c.497.008.991-.071 1.46-.233.43-.156.798-.378 1.106-.668.309-.29.557-.639.73-1.026h.13V16.5h2.55V5.423h-2.55v6.444c0 .41-.055.782-.165 1.114a2.33 2.33 0 0 1-.485.853 2.153 2.153 0 0 1-.783.546 2.744 2.744 0 0 1-1.054.191c-.754 0-1.307-.216-1.657-.647-.35-.431-.526-1.063-.526-1.894V5.423h-2.55v7.166c0 .867.144 1.61.433 2.228.289.618.716 1.09 1.281 1.416.566.326 1.259.489 2.08.489Zm12.084-.024c.525 0 1.005-.08 1.441-.24a3.453 3.453 0 0 0 1.955-1.747h.13V16.5h2.55V1.24h-2.55v5.997h-.13a3.292 3.292 0 0 0-.802-1.073c-.338-.3-.727-.53-1.167-.694a4.093 4.093 0 0 0-1.433-.244c-.932 0-1.739.23-2.42.693-.681.463-1.207 1.122-1.579 1.978-.371.855-.557 1.873-.557 3.055v.016c0 1.175.186 2.19.559 3.049.372.858.9 1.52 1.585 1.984.684.464 1.49.697 2.418.697Zm.783-2.15c-.566 0-1.054-.145-1.466-.432-.412-.287-.728-.699-.95-1.235-.22-.536-.33-1.174-.33-1.913v-.016c0-.742.11-1.38.331-1.912.222-.533.539-.944.95-1.232.412-.288.9-.432 1.465-.432.56 0 1.046.146 1.46.436.413.29.735.703.964 1.237.228.534.343 1.169.343 1.906v.016c0 .732-.114 1.366-.34 1.902-.227.536-.548.95-.963 1.24-.415.29-.903.434-1.464.434v.001ZM8.856 3.158C9.35 2.56 9.7 1.745 9.7.92c0-.114-.01-.227-.03-.32-.805.03-1.774.536-2.351 1.217-.454.516-.877 1.341-.877 2.167 0 .123.02.247.031.288.052.01.134.021.217.021.721 0 1.629-.485 2.165-1.135h.001Zm.567 1.31c-1.207 0-2.186.733-2.815.733-.67 0-1.546-.691-2.598-.691C2.02 4.51 0 6.16 0 9.265c0 1.94.742 3.982 1.67 5.303.794 1.114 1.485 2.032 2.485 2.032.99 0 1.422-.66 2.65-.66 1.247 0 1.525.64 2.618.64 1.082 0 1.804-.991 2.484-1.971.763-1.124 1.083-2.218 1.093-2.27-.062-.02-2.134-.866-2.134-3.239 0-2.053 1.629-2.97 1.722-3.043-1.073-1.547-2.712-1.589-3.165-1.589Z"
+                                      fill="#1D1D1F" transform="translate(2.5 6.5)"></path>
+                            </g>
+                        </svg>
+                    </a></div>
+                </div>
+                <div class="application-toolbar-end-view">
+                    <div class="cloudos-application-toolbar-end-view">
+                        <div class="toolbar-buttons-container">
+                            <ui-button class="push primary toolbar-icon-button help-icon icloud-mouse"
+                                       ontouchstart="void(0)" role="button" aria-label="帮助菜单" aria-haspopup="menu"
+                                       tabindex="0">
+                                <button type="button" tabindex="-1"></button>
+                                <svg viewBox="0 0 92.0899658203125 19.5810546875" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" class=" glyph-box" height="19" width="19">
+                                    <g transform="matrix(1 0 0 1 -8.740048828125055 45.0205078125)">
+                                        <path d="M28.418-35.2051C28.418-40.625 24.0234-44.9707 18.5059-44.9707C13.1348-44.9707 8.74023-40.625 8.74023-35.2051C8.74023-29.7852 13.1348-25.4395 18.5059-25.4395C24.0234-25.4395 28.418-29.7852 28.418-35.2051ZM64.5508-35.2051C64.5508-40.625 60.2051-44.9707 54.7852-44.9707C49.4141-44.9707 45.0684-40.625 45.0684-35.2051C45.0684-29.7852 49.4141-25.4395 54.7852-25.4395C60.2051-25.4395 64.5508-29.7852 64.5508-35.2051ZM100.83-35.2051C100.83-40.625 96.4844-44.9707 91.0645-44.9707C85.5469-44.9707 81.2012-40.625 81.2012-35.2051C81.2012-29.7852 85.5469-25.4395 91.0645-25.4395C96.4844-25.4395 100.83-29.7852 100.83-35.2051Z"></path>
+                                    </g>
+                                </svg>
+                            </ui-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="landing-page">
+            <div class="hero-wrapper">
+                <div class="icloud-animated-hero">
+                    <video src="../fpo@1x.mp4" width="430" height="388" autoplay="" playsinline="" loop=""
+                           x-webkit-airplay="deny"
+                           title="动画显示不同用户的拟我表情，周围围绕用户个人最常使用的 App 图标"></video>
+                </div>
+                <div class="landing-page-icloud-hero">
+                    <div class="clouds"><img src="../62fa42f6867d6ddd8ebacde0258fdb80.jpg"
+                                             srcset="../fc2b7d9c646c188a2aed32221a4fe795.jpg, ../62fa42f6867d6ddd8ebacde0258fdb80.jpg 2x, ../3cd0028caadf7d5e3796db097b4b1b40.jpg 3x"
+                                             width="430" height="388" alt="" aria-hidden="true"></div>
+                    <h1>iCloud</h1></div>
+            </div>
+            <div class="landing-page-content">
+                <ui-button class="push primary sign-in-button icloud-mouse" ontouchstart="void(0)" role="button"
+                           aria-haspopup="false" tabindex="0">
+                    <button type="button" tabindex="-1"></button>
+                    登录
+                </ui-button>
+                <h2 class="description">储存所有照片、文件、备忘录、邮件和更多内容的最佳选择。</h2>
+                <div class="tiles">
+                    <div class="landing-page-tile">
+                        <div class="tile-icon"><img src="../e6ffc52737977fe1700d423a10874d0b.png"
+                                                    alt="iCloud.com 上可用的 App 图标集合，包括“邮件”、“查找”和“提醒事项”">
+                        </div>
+                        <div class="tile-title">在网页上轻松访问 iPhone 上的 App 和数据</div>
+                        <div class="tile-description">为确保设备中的个人信息安全、及时更新并可供你随时随地使用，iCloud
+                            至关重要。你可以使用任意网页浏览器前往 iCloud.com 访问照片、文件和更多内容。你做出的更改将同步到
+                            iPhone 和其他设备，因此你始终可获得最新信息。
+                        </div>
+                    </div>
+                    <div class="landing-page-tile">
+                        <div class="tile-icon"><img src="../c63858bf09261d1e1c206e3930b013d3.png"
+                                                    alt="描述 iCloud+ 各项优点（包括高达 12 TB 的储存空间）的图示。"></div>
+                        <div class="tile-title">提供更多储存空间和其他保护你的隐私的功能</div>
+                        <div class="tile-description">升级至 iCloud+ 以获取更多储存空间和其他功能，如 iCloud 专用代理、隐藏邮件地址和
+                            HomeKit 安全视频。你还可以与家人共享订阅项目。了解更多信息，请访问 <a target="_blank"
+                                                                                               rel="noreferrer"
+                                                                                               href="https://apple.com/icloud"
+                                                                                               class="unstyled-link"
+                                                                                               aria-label="前往 apple.com/iCloud 了解更多 （在新标签页中打开）">apple.com/icloud.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="legal-footer">
+            <div class="application-content">
+                <div class="legal-footer-content">
+                    <div class="inner-row" role="presentation">
+                        <div class="with-separator"><a class="systemStatus" target="_blank" rel="noreferrer"
+                                                       href="https://www.apple.com/support/systemstatus/"
+                                                       aria-label="系统状态 （在新标签页中打开）">系统状态</a>
+                            <div aria-hidden="true" class="separator"></div>
+                        </div>
+                        <div class="with-separator"><a class="privacy" target="_blank" rel="noreferrer"
+                                                       href="https://www.apple.com/legal/privacy/"
+                                                       aria-label="隐私政策 （在新标签页中打开）">隐私政策</a>
+                            <div aria-hidden="true" class="separator"></div>
+                        </div>
+                        <a class="terms" target="_blank" rel="noreferrer"
+                           href="https://www.apple.com/legal/internet-services/icloud/"
+                           aria-label="条款与条件 （在新标签页中打开）">条款与条件</a></div>
+                    <div class="inner-row" role="presentation"><span class="copyright">版权所有 © 2023 Apple Inc. 保留所有权利。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
