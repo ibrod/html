@@ -15,6 +15,23 @@
     background-position: 100% 100%;
 }
 
+/* 针对 Chrome、Edge 和 Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+/* 针对 Firefox */
+input[type="number"] {
+    /* 为 Firefox 设置透明度 */
+    opacity: 1;
+}
+
+.cobItem::before{
+    content:"￥";
+}
+
+
 .font-grey {
     color: grey;
     font-size: 15px;

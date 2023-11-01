@@ -975,10 +975,11 @@
         //中央图片动画轮播效果
         changePic(0);
         togglePic();
-        $('.li-div').click(function () {
+        $('.li-div').mouseover(function () {
             clearInterval(setIntervalCenterPic);
             centerPicOrder = $(this).text() - 1;
             changePic(centerPicOrder);
+        }).mouseleave(function () {
             togglePic();
         })
 
@@ -998,8 +999,6 @@
         }, function () {
             $sepUlCard.hide();
         })
-
-
     })
 
     // const li_div = document.getElementsByClassName('li-div');

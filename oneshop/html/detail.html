@@ -5,8 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <title>Detail</title>
+    <script src="../../util/jquery-3.7.1.js"></script>
+
     <link rel="stylesheet" href="../css/index/index.css ">
 
     <link rel="stylesheet" href="../css/detail/detail.css">
@@ -258,7 +259,7 @@
             <div>
                 <img src="../resource/images/mat_1.jpg" alt="">
                 粤通国际珠宝 999足金
-                <div><input type="checkbox"><label>￥78</label></div>
+                <div><input type="checkbox" class="cobCheckBox" checked><label class="cobItem">78</label></div>
             </div>
 
             <div style="color:grey;font-size: 70px;">
@@ -268,7 +269,7 @@
             <div>
                 <img src="../resource/images/mat_2.jpg" alt="">
                 珠韵 9.5-10mm珍珠项链
-                <div><input type="checkbox"><label>￥1890</label></div>
+                <div><input type="checkbox" class="cobCheckBox" checked><label class="cobItem">1890</label></div>
             </div>
 
             <div style="color:grey;font-size: 70px;">
@@ -278,7 +279,7 @@
             <div>
                 <img src="../resource/images/mat_3.jpg" alt="">
                 清新耳环
-                <div><input type="checkbox"><label>￥232</label></div>
+                <div><input type="checkbox" class="cobCheckBox" checked><label class="cobItem">232</label></div>
             </div>
 
             <div style="color:grey;font-size: 70px;">
@@ -286,9 +287,9 @@
             </div>
 
             <div style="line-height: 50px;font-size: 20px;">
-                <div class="price">套餐价:￥2000</div>
+                <div class="price">套餐价:￥<span id="sumPrice">2200</span></div>
                 <div>
-                    <input type="number" style="width: 50%;height: 60%">
+                    <input type="number" id="combo" style="width: 50%;height: 60%;font-size: 20px;" value="1" min="1">
                 </div>
                 <div class="add-to-cart" style="width: 70%">
                     组合购买
@@ -596,6 +597,51 @@
 </body>
 
 <script>
+
+    $(
+        function (){
+            const numFun=function (){
+                $(this).val(parseInt($(this).val()));
+                if ($(this).val() < 1){
+                    $(this).val(1);
+                }
+                if ($(this).val() > 999){
+                    $(this).val(999);
+                }
+            };
+            $('input[type="number"]').change(numFun);
+
+            function calcSumPrice(){
+                let cobItem = $('.cobItem');
+                let cobCheckBox = $('.cobCheckBox');
+                let cobItemSum = 0;
+                for (let i = 0; i < cobCheckBox.length; i++) {
+                    if (cobCheckBox[i].checked){
+                        cobItemSum += parseInt(cobItem[i].innerText);
+                    }
+                }
+                $('#sumPrice').text(cobItemSum*$combo.val());
+            }
+
+            let $combo=$('#combo');
+            $('.cobCheckBox').click(function (){
+                calcSumPrice();
+            });
+
+            $combo.change(function (){
+                numFun.call(this);
+                calcSumPrice();
+            });
+
+            // let cobItem = $('.cobItem');
+            // $('#combo').blur(function (){
+            //     if ($(this).val() > 0){
+            //         cobItem.text('￥' + $(this).val() * 2000);
+            //     }
+            // });
+        }
+    )
+
     const divBox = document.getElementById('selectLength').getElementsByClassName('div-box');
     for (let i = 0; i < divBox.length; i++) {
         divBox[i].onclick = function () {
