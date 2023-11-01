@@ -43,9 +43,9 @@ a {
     vertical-align: middle;
 }
 
-.div-hover-top:hover ~ .div-hover, .div-hover:hover {
-    display: block;
-}
+/*.div-hover-top:hover ~ .div-hover, .div-hover:hover {*/
+/*    display: block;*/
+/*}*/
 
 .head-content {
     margin: 50px auto;
@@ -55,6 +55,7 @@ a {
     width: 100%;
     /*align-items: center;*/
 }
+
 
 
 .search-input {
@@ -316,15 +317,15 @@ nav {
     padding: 20px;
 }
 
-.sep-ul-card>h2{
+.sep-ul-card > h2 {
     grid-column: 1/8;
 }
 
-.sep-ul-card>span{
+.sep-ul-card > span {
     cursor: pointer;
 }
 
-.sep-ul-card>span:hover {
+.sep-ul-card > span:hover {
     color: gold;
 }
 

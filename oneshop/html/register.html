@@ -33,6 +33,7 @@
             <input type="button" class="get-code-button" value="获取验证码" required>
             <input type="password" class="input-style" name="userPassword" placeholder="密码" required>
             <input type="password" class="input-style" name="confirmPassword" placeholder="确认密码" required>
+            <span class="redInfo">(两次输入的密码不一致)</span>
             <div style="color: grey;margin-right: 100px;margin-top: 10px;">
                 点击注册，表示您同意1号店<a href="" class="a-none-text-decoration">《服务协议》</a>
             </div>
@@ -74,6 +75,47 @@
                 sendSms();
             }
         });
+
+        $('.submit-button').click(
+            function (event){
+                let $phoneNumber = $("#phoneNumber")
+                if (!$phoneNumber[0].checkValidity()) {
+                    alert("请输入正确的手机号");
+                    event.preventDefault();
+                    return;
+                }
+                let $userPassword = $("input[name='userPassword']");
+                let $confirmPassword = $("input[name='confirmPassword']");
+                if ($userPassword.val() !== $confirmPassword.val()) {
+                    alert("两次输入的密码不一致");
+                    event.preventDefault();
+                }
+            }
+        );
+
+        $(".redInfo").hide();
+        let $userPassword = $("input[name='userPassword']");
+        let $confirmPassword = $("input[name='confirmPassword']");
+        $userPassword.keyup(function (){
+            if ($userPassword.val() !== $confirmPassword.val()) {
+                $(".redInfo").show();
+            }else{
+                $(".redInfo").hide();
+            }
+        });
+
+        $confirmPassword.keyup(function (){
+            if ($userPassword.val() !== $confirmPassword.val()) {
+                $(".redInfo").show();
+            }else{
+                $(".redInfo").hide();
+            }
+        });
+
+
+
     });
+
+
 </script>
 </html>

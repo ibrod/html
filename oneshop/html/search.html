@@ -703,6 +703,7 @@
                         let $count = $item.children('.count').children('input');
                         $count.val(parseInt($count.val())+1);
                         $count.change();
+                        alert('您的库存中已有该商品，已为您数量+1');
                         return;
                     }
                     $cartCard.prepend(`
@@ -753,6 +754,7 @@
                         updateCartPrice();
                     });
                     updateCartPrice();
+                    alert('添加成功');
                 }
             );
 

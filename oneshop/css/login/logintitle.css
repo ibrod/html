@@ -44,6 +44,14 @@ body, html {
 .content {
     text-align: center;
     margin-top: 50px;
+    position: relative;
+}
+
+.redInfo {
+    position: absolute;
+    top: 285px;
+    color: red;
+    font-size: 15px;
 }
 
 .input-style {
@@ -65,7 +73,7 @@ body, html {
     font-size: 15px;
 }
 
-.submit-button{
+.submit-button {
     width: 400px;
     height: 50px;
     margin-top: 20px;
@@ -76,17 +84,17 @@ body, html {
     border: none;
 }
 
-.a-none-text-decoration{
+.a-none-text-decoration {
     text-decoration: none;
 }
 
-.login-left-pic{
+.login-left-pic {
     float: left;
     margin-top: 60px;
     margin-left: 150px;
 }
 
-.login-right-card{
+.login-right-card {
     float: right;
     margin-top: 60px;
     margin-right: 150px;
@@ -97,14 +105,14 @@ body, html {
 /*    border: 1px solid red;*/
 /*}*/
 
-.login-input-style{
+.login-input-style {
     background-repeat: no-repeat;
     line-height: 30px;
     background-position: 10px 10px;
     padding-left: 50px;
 }
 
-.bottom-img-style{
+.bottom-img-style {
     width: 40px;
     height: 40px;
     margin-right: 10px;

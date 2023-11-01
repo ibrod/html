@@ -945,16 +945,16 @@
     let centerPicOrder = 0;
     let setIntervalCenterPic;
     let $li_div = $('.li-div');
-    const changePic = function (num) {
-        $('#center-picture').hide().css('background-image', 'url(../resource/images/ban' + (centerPicOrder + 1) + '.jpg)').fadeIn(500);
+    const changePic = function (num,ms) {
+        $('#center-picture').hide().css('background-image', 'url(../resource/images/ban' + (centerPicOrder + 1) + '.jpg)').fadeIn(ms);
         $li_div.css('background-color', 'white').css('color', 'black');
         $li_div.eq(num).css('background-color', 'red').css('color', 'white');
     }
 
-    const togglePic = function () {
+    const togglePic = function (ms=500) {
         setIntervalCenterPic = setInterval(function () {
             centerPicOrder = (centerPicOrder + 1) % 3;
-            changePic(centerPicOrder);
+            changePic(centerPicOrder,ms);
         }, 3000);
     }
 
@@ -971,14 +971,13 @@
     }
 
     $(function () {
-
         //中央图片动画轮播效果
         changePic(0);
         togglePic();
         $('.li-div').mouseover(function () {
             clearInterval(setIntervalCenterPic);
             centerPicOrder = $(this).text() - 1;
-            changePic(centerPicOrder);
+            changePic(centerPicOrder,0);
         }).mouseleave(function () {
             togglePic();
         })
@@ -999,6 +998,20 @@
         }, function () {
             $sepUlCard.hide();
         })
+
+        $('.div-hover-top+.div-hover').hover(function () {
+            $(this).stop(true,true).show();
+        },function () {
+            $(this).stop(true,true).slideUp(400);
+        })
+
+        //最顶布栏的hover效果
+        $('.div-hover-top').hover(function () {
+            $(this).next('.div-hover').stop(false,false).slideDown(500);
+        }, function () {
+            $(this).next('.div-hover').stop(false,false).slideUp(400);
+        })
+
     })
 
     // const li_div = document.getElementsByClassName('li-div');

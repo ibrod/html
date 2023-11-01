@@ -71,6 +71,16 @@
 </body>
 
 <script>
+    function checkInput(input) {
+        for (let i = 0; i < input.length; i++) {
+            let code = input.charCodeAt(i);
+            if (code > 127) {
+                return false
+            }
+        }
+        return true;
+    }
+
     const imgStyle = document.getElementsByClassName('bottom-img-style');
     for (let i = 0; i < imgStyle.length; i++) {
         imgStyle[i].addEventListener('mouseover', function () {
@@ -81,6 +91,16 @@
         imgStyle[i].addEventListener('mouseout', function () {
             this.src = '../resource/images/l_' + (i + 1) + '.png';
         })
+    }
+
+    const userName= document.getElementsByName('userName')[0];
+    let preValue='';
+    userName.onchange=function (){
+        if(!checkInput(userName.value)){
+            userName.value=preValue;
+            alert('用户名不能包含非法字符');
+        }
+        preValue=userName.value;
     }
 
 </script>
