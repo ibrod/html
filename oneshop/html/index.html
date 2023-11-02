@@ -180,7 +180,7 @@
                 <!--                </div>-->
                 <div class="cart-card-bottom">
                     <div class="price-display">26877.00</div>
-                    <div class="pay">结算</div>
+                    <div class="pay">结算(6)</div>
                 </div>
             </div>
         </div>
@@ -1065,9 +1065,9 @@
         const $sepUlCard = $('.sep-ul-card');
         $sepUlCard.hide();
         $('.sep-ul>li').hover(function () {
-            $(this).children('.sep-ul-card').fadeIn(700);
+            $(this).children('.sep-ul-card').stop(true,true).fadeIn(700);
         }, function () {
-            $sepUlCard.hide();
+            $sepUlCard.stop(true,true).hide();
         })
 
         $('.div-hover-top+.div-hover').hover(function () {
@@ -1145,6 +1145,7 @@
         })
         $item.children('.delete').click(function (){
             $(this).parent().remove();
+            $('.pay').text(`结算(${--$item.length})`);
             updateCartPrice();
             solveEmptyCart();
         })
